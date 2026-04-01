@@ -31,6 +31,8 @@ export type FleetItem = {
   specs: Array<{ label: string; value: string }>;
   sectors: string[];
   download?: string;
+  /** YouTube video ID to embed on the detail page (e.g. "dQw4w9WgXcQ") */
+  videoYoutubeId?: string;
 };
 
 export type ReferenceItem = {
@@ -183,6 +185,9 @@ export const fleet: FleetItem[] = [
       "Carrieres, granulats et mines",
     ],
     download: "/docs/shantui-l55-c5-wheel-loader.pdf",
+    // Add a YouTube video ID here to show a machine demo video on the detail page.
+    // Example: videoYoutubeId: "XXXXXXXXXXX"
+    videoYoutubeId: undefined,
   },
   {
     slug: "pelle-excavatrice-20t",

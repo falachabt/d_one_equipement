@@ -1,4 +1,19 @@
+import type { Metadata } from "next";
+
 import { FleetCatalog } from "@/components/fleet-catalog";
+
+export const metadata: Metadata = {
+  title: "Flotte d'engins",
+  description:
+    "Consultez la flotte de D-ONE EQUIPMENT : chargeuses Shantui 5T, pelles excavatrices et engins en cours de déploiement. Fiches techniques et demande de devis.",
+  openGraph: {
+    title: "Flotte d'engins lourds | D-ONE EQUIPMENT",
+    description:
+      "Chargeuses Shantui 5T, pelles excavatrices et engins en cours de déploiement pour vos chantiers au Cameroun.",
+    images: [{ url: "/media/shantui-l55-c5.png", width: 1200, height: 630 }],
+  },
+};
+
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { fleet } from "@/data/site";

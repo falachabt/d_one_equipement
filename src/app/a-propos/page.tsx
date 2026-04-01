@@ -1,4 +1,19 @@
+import type { Metadata } from "next";
+
 import { PageHero } from "@/components/page-hero";
+
+export const metadata: Metadata = {
+  title: "À propos",
+  description:
+    "D-ONE EQUIPMENT est une entreprise spécialisée dans la location d'engins lourds au Cameroun — chargeuses, pelles — avec pilotage commercial depuis l'Allemagne et exécution terrain locale.",
+  openGraph: {
+    title: "À propos de D-ONE EQUIPMENT",
+    description:
+      "Spécialiste de la location d'engins lourds au Cameroun. Organisation fiable, réponse rapide, ancrage local à Douala, Kribi et Yaoundé.",
+    images: [{ url: "/media/shantui-gallery-1.jpg", width: 1200, height: 630 }],
+  },
+};
+
 import { SectionHeading } from "@/components/section-heading";
 
 export default function AboutPage() {
