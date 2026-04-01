@@ -110,9 +110,12 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
                       controls
                       preload="metadata"
                       className="aspect-video w-full"
-                      src={video.file}
                       poster={video.poster}
-                    />
+                      playsInline
+                    >
+                      <source src={video.file} type="video/mp4" />
+                      Votre navigateur ne peut pas lire cette video.
+                    </video>
                   </div>
                   <div className="space-y-3 p-5">
                     <h2 className="font-display text-2xl font-semibold text-[var(--foreground)]">
