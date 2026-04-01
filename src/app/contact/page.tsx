@@ -14,7 +14,6 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Contactez D-ONE EQUIPMENT pour une demande de devis, un renseignement sur la flotte ou une intervention terrain. Disponible par WhatsApp, telephone ou formulaire.",
   path: "/contact",
-  image: "/media/shantui-case-2.jpg",
 });
 
 function WhatsAppIcon() {

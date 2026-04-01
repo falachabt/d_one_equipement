@@ -9,7 +9,6 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "D-ONE EQUIPMENT intervient a Douala, Kribi et Yaounde sur des chantiers BTP, portuaires et industriels. Decouvrez les zones d'ancrage au Cameroun.",
   path: "/references",
-  image: "/media/shantui-case-1.jpg",
 });
 
 import { SectionHeading } from "@/components/section-heading";

@@ -8,7 +8,6 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Location de chargeuses et pelles au Cameroun avec ou sans chauffeur qualifie. Maintenance technique incluse et intervention a Douala, Yaounde et Kribi.",
   path: "/services",
-  image: "/media/shantui-gallery-1.jpg",
 });
 
 import { SectionHeading } from "@/components/section-heading";

@@ -1,0 +1,58 @@
+
+> d_one_equipement@0.1.0 build
+> node scripts/ensure-native-css-bindings.mjs && next build
+
+▲ Next.js 16.2.1 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.1s
+  Running TypeScript ...
+  Finished TypeScript in 7.3s ...
+  Collecting page data using 21 workers ...
+  Generating static pages using 21 workers (0/31) ...
+  Generating static pages using 21 workers (7/31) 
+  Generating static pages using 21 workers (15/31) 
+  Generating static pages using 21 workers (23/31) 
+✓ Generating static pages using 21 workers (31/31) in 6.3s
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /a-propos
+├ ○ /a-propos/opengraph-image
+├ ○ /a-propos/twitter-image
+├ ○ /actualites
+├ ○ /actualites/opengraph-image
+├ ○ /actualites/twitter-image
+├ ƒ /api/quote
+├ ○ /contact
+├ ○ /contact/opengraph-image
+├ ○ /contact/twitter-image
+├ ○ /flotte
+├ ● /flotte/[slug]
+│ ├ /flotte/shantui-l55-c5
+│ ├ /flotte/sany-sy215c
+│ └ /flotte/sany-sw305k
+├ ƒ /flotte/-/opengraph-image
+├ ƒ /flotte/-/twitter-image
+├ ○ /flotte/opengraph-image
+├ ○ /flotte/twitter-image
+├ ○ /icon.svg
+├ ○ /opengraph-image
+├ ○ /references
+├ ○ /references/opengraph-image
+├ ○ /references/twitter-image
+├ ○ /robots.txt
+├ ○ /services
+├ ○ /services/opengraph-image
+├ ○ /services/twitter-image
+├ ○ /sitemap.xml
+└ ○ /twitter-image
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

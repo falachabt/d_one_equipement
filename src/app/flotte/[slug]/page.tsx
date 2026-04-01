@@ -26,8 +26,6 @@ export async function generateMetadata({ params }: FleetDetailPageProps): Promis
     title: item.name,
     description: item.summary,
     path: `/flotte/${item.slug}`,
-    image: item.image,
-    imageAlt: `${item.name} - D-ONE EQUIPMENT`,
     keywords: [
       item.name,
       item.brand,

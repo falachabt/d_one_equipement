@@ -8,7 +8,6 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "D-ONE EQUIPMENT est une entreprise specialisee dans la location d'engins lourds au Cameroun avec pilotage commercial depuis l'Allemagne et execution terrain locale.",
   path: "/a-propos",
-  image: "/media/shantui-gallery-1.jpg",
 });
 
 import { SectionHeading } from "@/components/section-heading";

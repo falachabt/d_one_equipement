@@ -14,7 +14,6 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Location de chargeuses et pelles pour chantiers BTP, industrie et logistique. Devis rapide, visuels machine, fiches detaillees et intervention a Douala, Yaounde et Kribi.",
   path: "/",
-  image: "/media/shantui-gallery-1.jpg",
 });
 
 const heroStats = [

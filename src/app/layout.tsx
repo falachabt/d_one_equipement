@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { company } from "@/data/site";
-import { defaultOgImage, siteUrl } from "@/lib/metadata";
+import { siteUrl } from "@/lib/metadata";
 import "./globals.css";
 
 const rajdhani = Rajdhani({
@@ -34,20 +34,11 @@ export const metadata: Metadata = {
     siteName: "D-ONE EQUIPMENT",
     locale: "fr_FR",
     type: "website",
-    images: [
-      {
-        url: defaultOgImage,
-        width: 1241,
-        height: 756,
-        alt: "Chargeuse D-ONE EQUIPMENT sur chantier",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "D-ONE EQUIPMENT",
     description: company.description,
-    images: [defaultOgImage],
   },
 };
 

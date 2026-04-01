@@ -8,7 +8,6 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Consultez la flotte de D-ONE EQUIPMENT : Shantui L55-C5, SANY SY215C et SANY SW305K. Fiches techniques, visuels, videos et demande de devis.",
   path: "/flotte",
-  image: "/media/shantui-l55-c5.png",
 });
 
 import { PageHero } from "@/components/page-hero";

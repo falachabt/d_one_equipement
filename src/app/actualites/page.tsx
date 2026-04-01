@@ -10,7 +10,6 @@ export const metadata: Metadata = buildPageMetadata({
   description:
     "Conseils chantier, informations flotte et sujets de marche utiles autour de la location d'engins au Cameroun.",
   path: "/actualites",
-  image: "/media/shantui-gallery-1.jpg",
 });
 
 export default function NewsPage() {
