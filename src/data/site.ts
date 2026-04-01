@@ -34,6 +34,7 @@ export type FleetItem = {
   videos?: Array<{
     title: string;
     file: string;
+    poster?: string;
     sourceLabel: string;
     sourceUrl: string;
   }>;
@@ -194,12 +195,14 @@ export const fleet: FleetItem[] = [
       {
         title: "Plan chantier terrassement",
         file: "/media/videos/clean/bulldozer-hilltop-clean.mp4",
+        poster: "/media/videos/clean/frames/bulldozer-hilltop-clean.jpg",
         sourceLabel: "Pexels",
         sourceUrl: "https://www.pexels.com/video/yellow-bulldozer-moving-earth-on-hilltop-35650075/",
       },
       {
         title: "Plan detail godet et deblais",
         file: "/media/videos/clean/earthmoving-closeup-clean.mp4",
+        poster: "/media/videos/clean/frames/earthmoving-closeup-clean.jpg",
         sourceLabel: "Pexels",
         sourceUrl: "https://www.pexels.com/video/bulldozer-pouring-sand-on-the-construction-site-4376247/",
       },
@@ -245,12 +248,14 @@ export const fleet: FleetItem[] = [
       {
         title: "Excavation et chargement chantier",
         file: "/media/videos/clean/excavator-loading-site-clean.mp4",
+        poster: "/media/videos/clean/frames/excavator-loading-site-clean.jpg",
         sourceLabel: "Pexels",
         sourceUrl: "https://www.pexels.com/video/excavator-loading-truck-at-construction-site-36298168/",
       },
       {
         title: "Plan carriere et deblais",
         file: "/media/videos/clean/quarry-excavator-clean.mp4",
+        poster: "/media/videos/clean/frames/quarry-excavator-clean.jpg",
         sourceLabel: "Pexels",
         sourceUrl: "https://www.pexels.com/video/construction-site-excavation-with-heavy-machinery-36251024/",
       },
@@ -293,12 +298,14 @@ export const fleet: FleetItem[] = [
       {
         title: "Plan machine sur plateforme",
         file: "/media/videos/clean/bulldozer-hilltop-clean.mp4",
+        poster: "/media/videos/clean/frames/bulldozer-hilltop-clean.jpg",
         sourceLabel: "Pexels",
         sourceUrl: "https://www.pexels.com/video/yellow-bulldozer-moving-earth-on-hilltop-35650075/",
       },
       {
         title: "Detail operation terre et godet",
         file: "/media/videos/clean/earthmoving-closeup-clean.mp4",
+        poster: "/media/videos/clean/frames/earthmoving-closeup-clean.jpg",
         sourceLabel: "Pexels",
         sourceUrl: "https://www.pexels.com/video/bulldozer-pouring-sand-on-the-construction-site-4376247/",
       },

@@ -92,7 +92,7 @@ export default function Home() {
             className="object-cover opacity-28"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,22,17,0.01),rgba(14,22,17,0.01),rgba(14,22,17,0.01))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,22,17,0.92),rgba(14,22,17,0.78),rgba(14,22,17,0.64))]" />
         </div>
 
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-[1fr_340px] lg:px-8 lg:py-28">
@@ -114,7 +114,10 @@ export default function Home() {
                 <Link href="/contact#devis" className="btn-primary">
                   Demander un devis
                 </Link>
-                <Link href="/flotte" className="btn-secondary border-white/20 text-white hover:bg-white/8">
+                <Link
+                  href="/flotte"
+                  className="btn-secondary border-white/45 bg-white/10 text-white shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:border-white/70 hover:bg-white/18"
+                >
                   Acceder a la flotte
                 </Link>
               </div>

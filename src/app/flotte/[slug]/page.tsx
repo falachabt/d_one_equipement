@@ -113,6 +113,7 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
                       preload="metadata"
                       className="aspect-video w-full"
                       src={video.file}
+                      poster={video.poster}
                     />
                   </div>
                   <div className="space-y-3 p-5">
@@ -120,16 +121,8 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
                       {video.title}
                     </h2>
                     <p className="text-sm leading-7 text-[var(--muted)]">
-                      Source: {video.sourceLabel}
+                      Apercu video de la machine sur chantier et en demonstration.
                     </p>
-                    <Link
-                      href={video.sourceUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--forest)] transition hover:text-[var(--forest-deep)]"
-                    >
-                      Voir la source video →
-                    </Link>
                   </div>
                 </article>
               ))}
