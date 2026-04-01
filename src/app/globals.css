@@ -10,6 +10,7 @@
   --line: #d7d0c1;
   --forest: #2d6f41;
   --forest-deep: #1f4c2d;
+  --forest-light: #e7f0e4;
   --gold: #c8a63b;
   --gold-soft: #efe2b3;
 }
@@ -158,12 +159,13 @@ textarea {
 
 .btn-secondary {
   border: 1px solid rgba(25, 33, 28, 0.18);
-  background: transparent;
+  /* background: transparent; */
   color: var(--foreground);
 }
 
 .btn-secondary:hover {
-  background: rgba(22, 29, 24, 0.04);
+  background: var(--gold);
+  color : white
 }
 
 .tag {

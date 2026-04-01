@@ -116,9 +116,9 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/flotte"
-                  className="btn-secondary border-white/45 bg-white/10 text-white shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:border-white/70 hover:bg-white/18"
+                  className="btn-secondary border-white/45 bg-white/80 text-white shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:border-white/70 hover:bg-white/90"
                 >
-                  Acceder a la flotte
+                  Voir les machines
                 </Link>
               </div>
             </AnimateIn>
