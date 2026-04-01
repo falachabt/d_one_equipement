@@ -6,6 +6,7 @@ import { Play } from "lucide-react";
 import { EquipmentGallery } from "@/components/equipment-gallery";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
 import { getFleetBySlug, fleet } from "@/data/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 type FleetDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -21,28 +22,19 @@ export async function generateMetadata({ params }: FleetDetailPageProps): Promis
 
   if (!item) return {};
 
-  return {
+  return buildPageMetadata({
     title: item.name,
     description: item.summary,
-    openGraph: {
-      title: `${item.name} | D-ONE EQUIPMENT`,
-      description: item.summary,
-      images: [
-        {
-          url: item.image,
-          width: 1200,
-          height: 630,
-          alt: `${item.name} — D-ONE EQUIPMENT`,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${item.name} | D-ONE EQUIPMENT`,
-      description: item.summary,
-      images: [item.image],
-    },
-  };
+    path: `/flotte/${item.slug}`,
+    image: item.image,
+    imageAlt: `${item.name} - D-ONE EQUIPMENT`,
+    keywords: [
+      item.name,
+      item.brand,
+      item.type,
+      `location ${item.type.toLowerCase()} Cameroun`,
+    ],
+  });
 }
 
 export default async function FleetDetailPage({ params }: FleetDetailPageProps) {

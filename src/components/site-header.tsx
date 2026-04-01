@@ -117,10 +117,11 @@ export function SiteHeader() {
           {/* Mobile menu toggle */}
           <button
             type="button"
+            title={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
             className="flex items-center justify-center border border-[var(--line)] bg-white p-2.5 text-[var(--foreground)] transition hover:bg-[var(--surface-strong)] lg:hidden"
             aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={mobileOpen ? "true" : "false"}
           >
             {mobileOpen ? (
               <X className="h-5 w-5" strokeWidth={2} />

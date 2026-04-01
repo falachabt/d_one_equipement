@@ -34,6 +34,7 @@ export function PageHero({
             </div>
 
             <div className="border border-[var(--line)] bg-[var(--surface)] p-5">
+              <p className="data-label">Acces</p>
               <div className="mt-4 flex flex-col gap-3">
                 <Link href={ctaHref} className="btn-primary w-full justify-center">
                   {ctaLabel}

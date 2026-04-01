@@ -2,18 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 import { PageHero } from "@/components/page-hero";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Références terrain",
+export const metadata: Metadata = buildPageMetadata({
+  title: "References terrain",
   description:
-    "D-ONE EQUIPMENT intervient à Douala, Kribi et Yaoundé sur des chantiers BTP, portuaires et industriels. Découvrez nos zones d'ancrage au Cameroun.",
-  openGraph: {
-    title: "Références terrain | D-ONE EQUIPMENT",
-    description:
-      "Interventions à Douala, Kribi et Yaoundé — chantiers BTP, portuaires et industriels au Cameroun.",
-    images: [{ url: "/media/shantui-case-1.jpg", width: 1200, height: 630 }],
-  },
-};
+    "D-ONE EQUIPMENT intervient a Douala, Kribi et Yaounde sur des chantiers BTP, portuaires et industriels. Decouvrez les zones d'ancrage au Cameroun.",
+  path: "/references",
+  image: "/media/shantui-case-1.jpg",
+});
 
 import { SectionHeading } from "@/components/section-heading";
 import { references } from "@/data/site";

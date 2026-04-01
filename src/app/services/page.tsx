@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
 
 import { PageHero } from "@/components/page-hero";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Services de location",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Services de location d'engins",
   description:
-    "Location de chargeuses et pelles au Cameroun avec ou sans chauffeur qualifié. Maintenance technique incluse. Intervention à Douala, Yaoundé, Kribi.",
-  openGraph: {
-    title: "Services de location d'engins | D-ONE EQUIPMENT",
-    description:
-      "Location de chargeuses et pelles au Cameroun avec ou sans chauffeur qualifié. Intervention à Douala, Yaoundé, Kribi.",
-    images: [{ url: "/media/shantui-gallery-1.jpg", width: 1200, height: 630 }],
-  },
-};
+    "Location de chargeuses et pelles au Cameroun avec ou sans chauffeur qualifie. Maintenance technique incluse et intervention a Douala, Yaounde et Kribi.",
+  path: "/services",
+  image: "/media/shantui-gallery-1.jpg",
+});
 
 import { SectionHeading } from "@/components/section-heading";
 import { services } from "@/data/site";

@@ -29,6 +29,7 @@ export function EquipmentGallery({ images, alt }: EquipmentGalleryProps) {
             key={`${image}-${index}`}
             type="button"
             onClick={() => setActiveImage(image)}
+            title={`${alt} visuel ${index + 1}`}
             className={`relative aspect-[4/3] overflow-hidden border ${
               activeImage === image ? "border-[var(--surface-ink)]" : "border-[var(--line)]"
             }`}

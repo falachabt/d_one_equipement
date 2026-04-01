@@ -7,18 +7,15 @@ import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
 import { company } from "@/data/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contact et devis",
   description:
-    "Contactez D-ONE EQUIPMENT pour une demande de devis, un renseignement sur la flotte ou une intervention terrain. Disponible par WhatsApp, téléphone ou formulaire.",
-  openGraph: {
-    title: "Contact et devis | D-ONE EQUIPMENT",
-    description:
-      "Contactez D-ONE EQUIPMENT pour une demande de devis, un renseignement sur la flotte ou une intervention terrain.",
-    images: [{ url: "/media/shantui-case-2.jpg", width: 1200, height: 630 }],
-  },
-};
+    "Contactez D-ONE EQUIPMENT pour une demande de devis, un renseignement sur la flotte ou une intervention terrain. Disponible par WhatsApp, telephone ou formulaire.",
+  path: "/contact",
+  image: "/media/shantui-case-2.jpg",
+});
 
 function WhatsAppIcon() {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Truck, MapPin, Clock } from "lucide-react";
@@ -6,6 +7,15 @@ import { FleetShowcase } from "@/components/fleet-showcase";
 import { SectionHeading } from "@/components/section-heading";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
 import { company, fleet, references } from "@/data/site";
+import { buildPageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Location d'engins lourds au Cameroun",
+  description:
+    "Location de chargeuses et pelles pour chantiers BTP, industrie et logistique. Devis rapide, visuels machine, fiches detaillees et intervention a Douala, Yaounde et Kribi.",
+  path: "/",
+  image: "/media/shantui-gallery-1.jpg",
+});
 
 const heroStats = [
   {
@@ -14,6 +24,7 @@ const heroStats = [
     value: "Shantui 5T",
     sub: "162 kW · 3 m³",
     href: "/flotte/shantui-l55-c5",
+    actionLabel: "Voir la fiche machine",
   },
   {
     icon: MapPin,
@@ -21,6 +32,7 @@ const heroStats = [
     value: "Douala · Kribi",
     sub: "Yaoundé & tout le Cameroun",
     href: "/references",
+    actionLabel: "Voir les references terrain",
   },
   {
     icon: Clock,
@@ -28,6 +40,7 @@ const heroStats = [
     value: "Devis sous 24 h",
     sub: "WhatsApp ou formulaire",
     href: "/contact#devis",
+    actionLabel: "Ouvrir la demande de devis",
   },
 ];
 
@@ -42,22 +55,25 @@ function WhatsAppIconInline() {
 export default function Home() {
   const quickLinks = [
     {
-      title: "Voir les machines",
+      title: "Consulter la flotte",
       copy: "Consultez la flotte et les principales caracteristiques.",
       href: "/flotte",
+      actionLabel: "Ouvrir le catalogue",
     },
     {
       title: "Demande de devis",
       copy: "Indiquez l'engin souhaite, la duree et la localisation du chantier.",
       href: "/contact#devis",
+      actionLabel: "Ouvrir le formulaire",
     },
     ...(company.whatsappUrl
       ? [
           {
-            title: "WhatsApp direct",
-            copy: "Ouvrez directement la conversation WhatsApp avec l'equipe.",
+            title: "Envoyer un message",
+            copy: "Ouvrez WhatsApp et lancez la conversation avec l'equipe.",
             href: company.whatsappUrl,
             external: true,
+            actionLabel: "Ouvrir WhatsApp",
           },
         ]
       : []),
@@ -76,7 +92,7 @@ export default function Home() {
             className="object-cover opacity-28"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,22,17,0.92),rgba(14,22,17,0.78),rgba(14,22,17,0.64))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(14,22,17,0.01),rgba(14,22,17,0.01),rgba(14,22,17,0.01))]" />
         </div>
 
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-24 lg:grid-cols-[1fr_340px] lg:px-8 lg:py-28">
@@ -112,7 +128,7 @@ export default function Home() {
                   <StaggerItem key={stat.label}>
                     <Link
                       href={stat.href}
-                      className="group block border border-white/12 bg-white/6 px-5 py-5 backdrop-blur-sm transition hover:border-white/22 hover:bg-white/10"
+                      className="group block border border-white/12 bg-white/6 px-5 py-5 backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-white/24 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f0cd60]"
                     >
                       <Icon className="h-5 w-5 text-[#f0cd60] transition group-hover:scale-110" strokeWidth={1.75} />
                       <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/56">
@@ -122,6 +138,12 @@ export default function Home() {
                         {stat.value}
                       </p>
                       <p className="mt-1 text-[11px] text-white/50">{stat.sub}</p>
+                      <div className="mt-5 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.14em] text-[#f0cd60]">
+                        <span>{stat.actionLabel}</span>
+                        <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                          →
+                        </span>
+                      </div>
                     </Link>
                   </StaggerItem>
                 );
@@ -140,12 +162,18 @@ export default function Home() {
                     href={item.href}
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noreferrer" : undefined}
-                    className="block border border-[var(--line)] bg-white p-4 hover:bg-[var(--surface-strong)]"
+                    className="group block border border-[var(--line)] bg-white p-4 transition hover:bg-[var(--surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)]"
                   >
                     <h2 className="font-display text-2xl font-semibold text-[var(--foreground)]">
                       {item.title}
                     </h2>
                     <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{item.copy}</p>
+                    <div className="mt-4 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--forest)]">
+                      <span>{item.actionLabel}</span>
+                      <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                        →
+                      </span>
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -182,15 +210,21 @@ export default function Home() {
             <StaggerItem key={item.title}>
               <Link
                 href={item.href}
-                className={`block border-[var(--line)] px-6 py-7 hover:bg-[var(--surface-strong)] ${
+                className={`group block border-[var(--line)] px-6 py-7 transition hover:bg-[var(--surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gold)] ${
                   index < 3 ? "lg:border-r" : ""
                 }`}
               >
-                <p className="data-label">Navigation</p>
+                {/* <p className="data-label">Acces rapide</p> */}
                 <h2 className="mt-3 font-display text-3xl font-semibold text-[var(--foreground)]">
                   {item.title}
                 </h2>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.copy}</p>
+                <div className="mt-5 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--forest)]">
+                  <span>Ouvrir la page</span>
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                    →
+                  </span>
+                </div>
               </Link>
             </StaggerItem>
           ))}
@@ -203,7 +237,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Flotte disponible"
             title="Consultez les machines actuellement proposees."
-            copy="Selectionnez un engin pour voir son visuel, ses donnees utiles et acceder a sa fiche detaillee."
+            copy="Touchez ou cliquez sur un engin pour afficher immediatement son visuel, ses donnees utiles et acceder a sa fiche detaillee."
           />
         </AnimateIn>
 

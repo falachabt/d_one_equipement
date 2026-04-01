@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
 
 import { FleetCatalog } from "@/components/fleet-catalog";
+import { buildPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Flotte d'engins",
   description:
-    "Consultez la flotte de D-ONE EQUIPMENT : Shantui L55-C5, SANY SY215C et SANY SW305K. Fiches techniques, videos et demande de devis.",
-  openGraph: {
-    title: "Flotte d'engins lourds | D-ONE EQUIPMENT",
-    description:
-      "Chargeuses et pelles presentees par modele pour vos chantiers au Cameroun.",
-    images: [{ url: "/media/shantui-l55-c5.png", width: 1200, height: 630 }],
-  },
-};
+    "Consultez la flotte de D-ONE EQUIPMENT : Shantui L55-C5, SANY SY215C et SANY SW305K. Fiches techniques, visuels, videos et demande de devis.",
+  path: "/flotte",
+  image: "/media/shantui-l55-c5.png",
+});
 
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";

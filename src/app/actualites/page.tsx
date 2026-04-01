@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
+
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { articles } from "@/data/site";
+import { buildPageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Actualites",
+  description:
+    "Conseils chantier, informations flotte et sujets de marche utiles autour de la location d'engins au Cameroun.",
+  path: "/actualites",
+  image: "/media/shantui-gallery-1.jpg",
+});
 
 export default function NewsPage() {
   return (
