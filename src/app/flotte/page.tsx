@@ -5,11 +5,11 @@ import { FleetCatalog } from "@/components/fleet-catalog";
 export const metadata: Metadata = {
   title: "Flotte d'engins",
   description:
-    "Consultez la flotte de D-ONE EQUIPMENT : chargeuses Shantui 5T, pelles excavatrices et engins en cours de déploiement. Fiches techniques et demande de devis.",
+    "Consultez la flotte de D-ONE EQUIPMENT : Shantui L55-C5, SANY SY215C et SANY SW305K. Fiches techniques, videos et demande de devis.",
   openGraph: {
     title: "Flotte d'engins lourds | D-ONE EQUIPMENT",
     description:
-      "Chargeuses Shantui 5T, pelles excavatrices et engins en cours de déploiement pour vos chantiers au Cameroun.",
+      "Chargeuses et pelles presentees par modele pour vos chantiers au Cameroun.",
     images: [{ url: "/media/shantui-l55-c5.png", width: 1200, height: 630 }],
   },
 };
@@ -23,7 +23,7 @@ export default function FleetPage() {
     <>
       <PageHero
         eyebrow="Flotte"
-        title="Chargeuses, pelles et segments en cours de deploiement."
+        title="Chargeuses et pelles presentees par modele."
         description="Consultez les machines disponibles, leurs principales caracteristiques et l'acces aux fiches detaillees."
         image="/media/shantui-case-1.jpg"
       />

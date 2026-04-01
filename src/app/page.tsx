@@ -160,7 +160,7 @@ export default function Home() {
           {[
             {
               title: "Notre flotte",
-              copy: "Chargeuses, pelles et futurs segments adaptes aux besoins chantier.",
+              copy: "Chargeuses et pelles presentees par modele selon les besoins chantier.",
               href: "/flotte",
             },
             {
