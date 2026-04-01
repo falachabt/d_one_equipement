@@ -31,6 +31,12 @@ export type FleetItem = {
   specs: Array<{ label: string; value: string }>;
   sectors: string[];
   download?: string;
+  videos?: Array<{
+    title: string;
+    file: string;
+    sourceLabel: string;
+    sourceUrl: string;
+  }>;
   /** YouTube video ID to embed on the detail page (e.g. "dQw4w9WgXcQ") */
   videoYoutubeId?: string;
 };
@@ -73,7 +79,7 @@ export const company = {
       ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(
           "Bonjour D-ONE EQUIPMENT, je souhaite demander un devis pour un engin."
         )}`
-      : "/contact",
+      : null,
   areas: ["Douala", "Yaounde", "Kribi", "Partout au Cameroun"],
   keywords: [
     "location chargeuse Cameroun",
@@ -185,6 +191,20 @@ export const fleet: FleetItem[] = [
       "Carrieres, granulats et mines",
     ],
     download: "/docs/shantui-l55-c5-wheel-loader.pdf",
+    videos: [
+      {
+        title: "Video produit Shantui L55-B5",
+        file: "/media/videos/shantui-l55-b5-introduction.mp4",
+        sourceLabel: "Shantui Global",
+        sourceUrl: "https://www.youtube.com/watch?v=osEW2uHIjkw",
+      },
+      {
+        title: "Video machine Shantui L55-C5",
+        file: "/media/videos/shantui-l55-c5-wheel-loader.mp4",
+        sourceLabel: "CANMAX",
+        sourceUrl: "https://www.youtube.com/watch?v=JUE2F5wGMLA",
+      },
+    ],
     // Add a YouTube video ID here to show a machine demo video on the detail page.
     // Example: videoYoutubeId: "XXXXXXXXXXX"
     videoYoutubeId: undefined,

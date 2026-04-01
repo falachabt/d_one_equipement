@@ -101,23 +101,27 @@ export default function ContactPage() {
             </StaggerChildren>
 
             {/* WhatsApp CTA */}
-            <AnimateIn delay={0.15}>
-              <Link
-                href={company.whatsappUrl}
-                className="flex items-center gap-4 border border-[#25D366]/30 bg-[#f0fdf4] p-5 transition hover:bg-[#dcfce7]"
-              >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#25D366]">
-                  <WhatsAppIcon />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-[#15803d]">Contacter via WhatsApp</p>
-                  <p className="mt-0.5 text-xs text-[#166534]">
-                    Message pré-rempli · Réponse rapide
-                  </p>
-                </div>
-                <span className="ml-auto text-[#15803d]">→</span>
-              </Link>
-            </AnimateIn>
+            {company.whatsappUrl ? (
+              <AnimateIn delay={0.15}>
+                <Link
+                  href={company.whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-4 border border-[#25D366]/30 bg-[#f0fdf4] p-5 transition hover:bg-[#dcfce7]"
+                >
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#25D366]">
+                    <WhatsAppIcon />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-[#15803d]">Contacter via WhatsApp</p>
+                    <p className="mt-0.5 text-xs text-[#166534]">
+                      Message pré-rempli · Réponse rapide
+                    </p>
+                  </div>
+                  <span className="ml-auto text-[#15803d]">→</span>
+                </Link>
+              </AnimateIn>
+            ) : null}
           </div>
 
           <AnimateIn delay={0.1} direction="left">

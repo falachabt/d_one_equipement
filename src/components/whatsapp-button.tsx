@@ -3,9 +3,15 @@ import Link from "next/link";
 import { company } from "@/data/site";
 
 export function WhatsAppButton() {
+  if (!company.whatsappUrl) {
+    return null;
+  }
+
   return (
     <Link
       href={company.whatsappUrl}
+      target="_blank"
+      rel="noreferrer"
       className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2.5 border border-emerald-900/15 bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(37,211,102,0.32)] transition hover:-translate-y-0.5 hover:bg-[#22c55e] hover:shadow-[0_12px_32px_rgba(37,211,102,0.42)]"
       aria-label="Contacter D-ONE EQUIPMENT sur WhatsApp"
     >

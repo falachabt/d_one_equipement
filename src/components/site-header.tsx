@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -22,6 +23,15 @@ function WhatsAppIcon({ className }: { className?: string }) {
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+
+  function isActivePath(href: string) {
+    if (href === "/") {
+      return pathname === "/";
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
 
   return (
     <header className="sticky top-0 z-50">
@@ -32,14 +42,18 @@ export function SiteHeader() {
             <span>{company.areas.slice(0, 3).join(" · ")}</span>
             <span className="hidden sm:inline">{company.phone}</span>
           </div>
-          <Link
-            href={company.whatsappUrl}
-            className="flex items-center gap-1.5 text-[#4ade80] transition hover:text-white"
-            aria-label="Contacter via WhatsApp"
-          >
-            <WhatsAppIcon className="h-3.5 w-3.5" />
-            <span>WhatsApp</span>
-          </Link>
+          {company.whatsappUrl ? (
+            <Link
+              href={company.whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-1.5 text-[#4ade80] transition hover:text-white"
+              aria-label="Contacter via WhatsApp"
+            >
+              <WhatsAppIcon className="h-3.5 w-3.5" />
+              <span>WhatsApp</span>
+            </Link>
+          ) : null}
         </div>
       </div>
 
@@ -66,15 +80,29 @@ export function SiteHeader() {
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-7 lg:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-semibold text-[#38423b] transition hover:text-[var(--forest)]"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = isActivePath(item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative pb-1 text-sm font-semibold transition ${
+                    isActive
+                      ? "text-[var(--forest)]"
+                      : "text-[#38423b] hover:text-[var(--forest)]"
+                  }`}
+                >
+                  {item.label}
+                  <span
+                    className={`absolute inset-x-0 -bottom-[17px] h-[2px] bg-[var(--gold)] transition ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden items-center gap-3 lg:flex">
@@ -106,16 +134,25 @@ export function SiteHeader() {
         {mobileOpen && (
           <div className="border-t border-[var(--line)] bg-[var(--surface)] px-6 py-5 shadow-xl lg:hidden">
             <nav className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-base font-semibold text-[#394239] transition hover:text-[var(--forest)]"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = isActivePath(item.href);
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`border-l-2 pl-3 text-base font-semibold transition ${
+                      isActive
+                        ? "border-[var(--gold)] text-[var(--forest)]"
+                        : "border-transparent text-[#394239] hover:text-[var(--forest)]"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
               <Link
                 href="/contact#devis"
                 onClick={() => setMobileOpen(false)}

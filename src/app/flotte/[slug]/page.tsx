@@ -97,10 +97,57 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
       </section>
 
       {/* ─── VIDEO ────────────────────────────────────────────────── */}
-      {item.videoYoutubeId ? (
+      {item.videos?.length ? (
         <section className="border-b border-[var(--line)] bg-[var(--surface)]">
           <AnimateIn className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center bg-[var(--surface-ink)]">
+                <Play className="h-4 w-4 text-white" fill="white" strokeWidth={0} />
+              </div>
+              <div>
+                <p className="data-label">Videos machine</p>
+                <p className="text-sm text-[var(--muted)]">
+                  {item.name} en presentation et en demonstration
+                </p>
+              </div>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {item.videos.map((video) => (
+                <article key={video.file} className="overflow-hidden border border-[var(--line)] bg-white">
+                  <div className="border-b border-[var(--line)] bg-black">
+                    <video
+                      controls
+                      preload="metadata"
+                      className="aspect-video w-full"
+                      src={video.file}
+                    />
+                  </div>
+                  <div className="space-y-3 p-5">
+                    <h2 className="font-display text-2xl font-semibold text-[var(--foreground)]">
+                      {video.title}
+                    </h2>
+                    <p className="text-sm leading-7 text-[var(--muted)]">
+                      Source: {video.sourceLabel}
+                    </p>
+                    <Link
+                      href={video.sourceUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--forest)] transition hover:text-[var(--forest-deep)]"
+                    >
+                      Voir la source video →
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </AnimateIn>
+        </section>
+      ) : item.videoYoutubeId ? (
+        <section className="border-b border-[var(--line)] bg-[var(--surface)]">
+          <AnimateIn className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+            <div className="mb-6 flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center bg-[var(--surface-ink)]">
                 <Play className="h-4 w-4 text-white" fill="white" strokeWidth={0} />
               </div>

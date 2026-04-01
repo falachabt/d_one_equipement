@@ -53,16 +53,20 @@ export function SiteFooter() {
             <p>{company.phone}</p>
             <p>{company.email}</p>
             <p>{company.areas.slice(0, 3).join(" · ")}</p>
-            <Link
-              href={company.whatsappUrl}
-              className="inline-flex items-center gap-2 rounded-none border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-[#4ade80] transition hover:bg-[#25D366]/20 hover:text-white"
-              aria-label="Contacter via WhatsApp"
-            >
-              <WhatsAppIcon />
-              <span className="text-xs font-semibold uppercase tracking-[0.1em]">
-                WhatsApp
-              </span>
-            </Link>
+            {company.whatsappUrl ? (
+              <Link
+                href={company.whatsappUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-none border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-[#4ade80] transition hover:bg-[#25D366]/20 hover:text-white"
+                aria-label="Contacter via WhatsApp"
+              >
+                <WhatsAppIcon />
+                <span className="text-xs font-semibold uppercase tracking-[0.1em]">
+                  WhatsApp
+                </span>
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>

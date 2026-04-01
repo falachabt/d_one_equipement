@@ -40,6 +40,29 @@ function WhatsAppIconInline() {
 }
 
 export default function Home() {
+  const quickLinks = [
+    {
+      title: "Voir les machines",
+      copy: "Consultez la flotte et les principales caracteristiques.",
+      href: "/flotte",
+    },
+    {
+      title: "Demande de devis",
+      copy: "Indiquez l'engin souhaite, la duree et la localisation du chantier.",
+      href: "/contact#devis",
+    },
+    ...(company.whatsappUrl
+      ? [
+          {
+            title: "WhatsApp direct",
+            copy: "Ouvrez directement la conversation WhatsApp avec l'equipe.",
+            href: company.whatsappUrl,
+            external: true,
+          },
+        ]
+      : []),
+  ];
+
   return (
     <>
       {/* ─── HERO ─────────────────────────────────────────────────── */}
@@ -111,24 +134,14 @@ export default function Home() {
             <aside className="self-end border border-white/12 bg-[rgba(249,246,238,0.94)] p-6 text-[var(--foreground)]">
               <p className="data-label">Contact rapide</p>
               <div className="mt-5 space-y-4">
-                {[
-                  {
-                    title: "Voir les machines",
-                    copy: "Consultez la flotte et les principales caracteristiques.",
-                    href: "/flotte",
-                  },
-                  {
-                    title: "Demande de devis",
-                    copy: "Indiquez l'engin souhaite, la duree et la localisation du chantier.",
-                    href: "/contact#devis",
-                  },
-                  {
-                    title: "Parler a l'equipe",
-                    copy: "Contactez-nous directement par WhatsApp ou par telephone.",
-                    href: company.whatsappUrl,
-                  },
-                ].map((item) => (
-                  <Link key={item.title} href={item.href} className="block border border-[var(--line)] bg-white p-4 hover:bg-[var(--surface-strong)]">
+                {quickLinks.map((item) => (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noreferrer" : undefined}
+                    className="block border border-[var(--line)] bg-white p-4 hover:bg-[var(--surface-strong)]"
+                  >
                     <h2 className="font-display text-2xl font-semibold text-[var(--foreground)]">
                       {item.title}
                     </h2>
@@ -329,13 +342,17 @@ export default function Home() {
               <Link href="/contact#devis" className="btn-primary">
                 Demander un devis
               </Link>
-              <Link
-                href={company.whatsappUrl}
-                className="inline-flex items-center gap-2 border border-white/22 px-5 py-3 text-sm font-bold uppercase tracking-[0.1em] text-white transition hover:bg-white/8"
-              >
-                <WhatsAppIconInline />
-                WhatsApp
-              </Link>
+              {company.whatsappUrl ? (
+                <Link
+                  href={company.whatsappUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 border border-white/22 px-5 py-3 text-sm font-bold uppercase tracking-[0.1em] text-white transition hover:bg-white/8"
+                >
+                  <WhatsAppIconInline />
+                  WhatsApp
+                </Link>
+              ) : null}
             </div>
           </div>
         </AnimateIn>
