@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "8ToHxyDGZnDnoTa5B2W5-"
+uri = "file://public/media/services/service-chargeuse.png"
+type = "image"
+title = "chargeuse loading construction site"
+
+[[generated]]
+id = "JwMBINxiJe28AOsgUcMVS"
+uri = "file://public/media/services/service-pelle.png"
+type = "image"
+title = "excavator digging trench"
+
+[[generated]]
+id = "bY8z7JBT5ppi5XtgCX5jz"
+uri = "file://public/media/services/service-chauffeur.png"
+type = "image"
+title = "operator inside heavy equipment cabin"
+
+[[generated]]
+id = "XoUzfaDJtZVu0tj6sJ9IN"
+uri = "file://public/media/services/service-maintenance.png"
+type = "image"
+title = "mechanic maintaining heavy equipment"

@@ -16,7 +16,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const services = [
   {
-    image: "/media/shantui-gallery-1.jpg",
+    image: "/media/services/service-chargeuse.png",
     title: "Location de chargeuses",
     summary:
       "Nos chargeuses sont adaptées au chargement, à la manutention de matériaux et aux travaux de terrassement sur tout type de chantier.",
@@ -29,7 +29,7 @@ const services = [
     cta: { label: "Voir nos chargeuses", href: "/flotte" },
   },
   {
-    image: "/media/sany-sy215c-main.jpg",
+    image: "/media/services/service-pelle.png",
     title: "Location de pelles excavatrices",
     summary:
       "Une solution complète pour vos besoins d'excavation, de chargement et de préparation de plateforme sur chantier.",
@@ -42,7 +42,7 @@ const services = [
     cta: { label: "Voir nos pelles", href: "/flotte" },
   },
   {
-    image: "/media/shantui-case-1.jpg",
+    image: "/media/services/service-chauffeur.png",
     title: "Avec chauffeur qualifié",
     summary:
       "Nos engins sont proposés avec des opérateurs qualifiés pour démarrer votre chantier immédiatement, sans formation requise.",
@@ -55,7 +55,7 @@ const services = [
     cta: { label: "Demander un devis", href: "/contact#devis" },
   },
   {
-    image: "/media/shantui-case-2.jpg",
+    image: "/media/services/service-maintenance.png",
     title: "Maintenance et support technique",
     summary:
       "Un suivi technique continu pour maintenir la disponibilité de vos machines pendant toute la durée de la location.",
