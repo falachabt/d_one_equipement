@@ -95,7 +95,17 @@ export default function Home() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,15,11,0.1)] via-[rgba(10,15,11,0.4)] to-[rgba(10,15,11,0.95)]" />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden="true"
+        >
+          <source src="/media/videos/clean/earthmoving-closeup-clean.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,15,11,0.2)] via-[rgba(10,15,11,0.45)] to-[rgba(10,15,11,0.97)]" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 lg:px-8 lg:pb-28">
           <AnimateIn>
@@ -286,9 +296,9 @@ export default function Home() {
 
           <AnimateIn className="mt-10 grid grid-cols-3 gap-px bg-[var(--line-on-dark)]" delay={0.2}>
             {[
-              { value: "100%", label: "Machines neuves 2025" },
+              { value: "100%", label: "Flotte neuve" },
               { value: "24h", label: "Réponse devis" },
-              { value: "3+", label: "Secteurs d'activité" },
+              { value: "3+", label: "Secteurs" },
             ].map((stat) => (
               <div key={stat.label} className="bg-[var(--surface-ink)] text-center py-8 px-4">
                 <p className="font-display text-[2.8rem] font-bold leading-none text-[var(--gold)]">

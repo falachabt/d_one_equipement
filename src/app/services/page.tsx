@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Truck, Shovel, UserCheck, Wrench, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { PageHero } from "@/components/page-hero";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
@@ -15,7 +16,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const services = [
   {
-    icon: Truck,
+    image: "/media/shantui-gallery-1.jpg",
     title: "Location de chargeuses",
     summary:
       "Nos chargeuses sont adaptées au chargement, à la manutention de matériaux et aux travaux de terrassement sur tout type de chantier.",
@@ -28,7 +29,7 @@ const services = [
     cta: { label: "Voir nos chargeuses", href: "/flotte" },
   },
   {
-    icon: Shovel,
+    image: "/media/sany-sy215c-main.jpg",
     title: "Location de pelles excavatrices",
     summary:
       "Une solution complète pour vos besoins d'excavation, de chargement et de préparation de plateforme sur chantier.",
@@ -41,7 +42,7 @@ const services = [
     cta: { label: "Voir nos pelles", href: "/flotte" },
   },
   {
-    icon: UserCheck,
+    image: "/media/shantui-case-1.jpg",
     title: "Avec chauffeur qualifié",
     summary:
       "Nos engins sont proposés avec des opérateurs qualifiés pour démarrer votre chantier immédiatement, sans formation requise.",
@@ -54,7 +55,7 @@ const services = [
     cta: { label: "Demander un devis", href: "/contact#devis" },
   },
   {
-    icon: Wrench,
+    image: "/media/shantui-case-2.jpg",
     title: "Maintenance et support technique",
     summary:
       "Un suivi technique continu pour maintenir la disponibilité de vos machines pendant toute la durée de la location.",
@@ -97,23 +98,28 @@ export default function ServicesPage() {
           </AnimateIn>
 
           <StaggerChildren className="mt-16 grid gap-10 md:grid-cols-2" staggerDelay={0.1}>
-            {services.map((service) => {
-              const Icon = service.icon;
-              return (
-                <StaggerItem key={service.title}>
-                  <div className="line-card h-full flex flex-col gap-6">
-                    <div className="flex items-start gap-5">
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center bg-[var(--forest-light)] text-[var(--forest)]">
-                        <Icon className="h-6 w-6" strokeWidth={1.5} />
-                      </div>
-                      <div>
-                        <h3 className="font-display text-xl font-bold uppercase tracking-[0.05em]">
-                          {service.title}
-                        </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
-                          {service.summary}
-                        </p>
-                      </div>
+            {services.map((service) => (
+              <StaggerItem key={service.title}>
+                <div className="border border-[var(--line)] bg-[var(--background)] h-full flex flex-col overflow-hidden hover:border-[var(--gold)] transition-colors">
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,15,11,0.5)] to-transparent" />
+                  </div>
+
+                  <div className="flex flex-col gap-5 p-7 flex-1">
+                    <div>
+                      <h3 className="font-display text-xl font-bold uppercase tracking-[0.05em]">
+                        {service.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                        {service.summary}
+                      </p>
                     </div>
 
                     <ul className="space-y-2.5">
@@ -134,9 +140,9 @@ export default function ServicesPage() {
                       </Link>
                     </div>
                   </div>
-                </StaggerItem>
-              );
-            })}
+                </div>
+              </StaggerItem>
+            ))}
           </StaggerChildren>
         </div>
       </section>

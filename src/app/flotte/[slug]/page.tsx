@@ -44,14 +44,14 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
   return (
     <>
       {/* ─── HERO ─────────────────────────────────────────────────── */}
-      <section className="border-b border-[var(--line)] bg-[var(--surface-strong)]">
+      <section className="border-b border-[var(--line)] bg-[var(--background)]">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-18 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-20">
           <AnimateIn>
             <span className="tag">{item.badge}</span>
-            <h1 className="mt-5 font-display text-5xl font-semibold text-[var(--foreground)]">
+            <h1 className="mt-5 font-display text-5xl font-bold uppercase tracking-[0.02em] text-[var(--foreground)]">
               {item.name}
             </h1>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--muted)]">
+            <p className="mt-5 max-w-2xl text-base leading-7 text-[var(--muted)]">
               {item.summary}
             </p>
 
@@ -60,7 +60,7 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
                 Demander un devis
               </Link>
               {item.download ? (
-                <Link href={item.download} className="btn-secondary" target="_blank">
+                <Link href={item.download} className="btn-secondary text-[var(--foreground)]" target="_blank">
                   Télécharger la fiche PDF
                 </Link>
               ) : null}
@@ -69,9 +69,9 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
             <StaggerChildren className="mt-10 grid gap-4 sm:grid-cols-2" staggerDelay={0.08}>
               {item.specs.slice(0, 4).map((spec) => (
                 <StaggerItem key={spec.label}>
-                  <div className="technical-card p-4">
+                  <div className="border border-[var(--line)] bg-[var(--surface)] p-5">
                     <p className="data-label">{spec.label}</p>
-                    <p className="mt-2 font-display text-3xl font-semibold text-[var(--foreground)]">
+                    <p className="mt-2 font-display text-3xl font-bold text-[var(--foreground)]">
                       {spec.value}
                     </p>
                   </div>
