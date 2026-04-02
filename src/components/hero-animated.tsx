@@ -100,7 +100,7 @@ export function HeroAnimated({ slogan, subtitle, primaryCta, secondaryCta, whats
           {secondaryCta && (
             <Link
               href={secondaryCta.href}
-              className="btn-secondary border-t-[#ffffff] border-r-[#ffffff] border-b-[#ffffff] border-l-[#ffffff] text-[#ffffff]"
+              className="btn-outline-light"
             >
               {secondaryCta.label}
             </Link>
