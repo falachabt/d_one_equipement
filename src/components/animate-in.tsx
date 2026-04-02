@@ -40,14 +40,18 @@ export function AnimateIn({
     none: { y: 0, x: 0 },
   };
 
-  const shouldShow = inIframe || inView;
+  const show = inIframe || inView;
 
   return (
     <motion.div
       ref={ref}
       className={className}
       initial={{ opacity: 0, ...offsets[direction] }}
-      animate={shouldShow ? { opacity: 1, y: 0, x: 0 } : {}}
+      animate={{
+        opacity: show ? 1 : 0,
+        y: show ? 0 : offsets[direction].y,
+        x: show ? 0 : offsets[direction].x,
+      }}
       transition={{ duration: 0.52, ease: [0.25, 0.46, 0.45, 0.94], delay }}
     >
       {children}
@@ -70,14 +74,14 @@ export function StaggerChildren({
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0 });
 
-  const shouldShow = inIframe || inView;
+  const show = inIframe || inView;
 
   return (
     <motion.div
       ref={ref}
       className={className}
       initial="hidden"
-      animate={shouldShow ? "visible" : "hidden"}
+      animate={show ? "visible" : "hidden"}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },
