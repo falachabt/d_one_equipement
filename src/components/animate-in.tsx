@@ -28,7 +28,7 @@ export function AnimateIn({
       className={className}
       initial={{ opacity: 0, ...offsets[direction] }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, amount: 0 }}
       transition={{ duration: 0.52, ease: [0.25, 0.46, 0.45, 0.94], delay }}
     >
       {children}
@@ -52,7 +52,7 @@ export function StaggerChildren({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, amount: 0 }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },
