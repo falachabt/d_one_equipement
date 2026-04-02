@@ -1,0 +1,135 @@
+{
+  "colorScheme": "light",
+  "fonts": [
+    {
+      "family": "Source Sans 3",
+      "role": "body"
+    },
+    {
+      "family": "Rajdhani",
+      "role": "heading"
+    }
+  ],
+  "colors": {
+    "primary": "#E8B730",
+    "secondary": "#6B7C6F",
+    "accent": "#25D366",
+    "background": "#FFFFFF",
+    "textPrimary": "#0A0F0B",
+    "link": "#25D366"
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "Source Sans 3",
+      "heading": "Rajdhani"
+    },
+    "fontStacks": {
+      "heading": [
+        "Rajdhani",
+        "system-ui",
+        "sans-serif"
+      ],
+      "body": [
+        "Source Sans 3",
+        "system-ui",
+        "sans-serif"
+      ],
+      "paragraph": [
+        "Source Sans 3",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "fontSizes": {
+      "h1": "112px",
+      "h2": "80px",
+      "body": "11.52px"
+    }
+  },
+  "spacing": {
+    "baseUnit": 4,
+    "borderRadius": "0px"
+  },
+  "components": {
+    "buttonPrimary": {
+      "background": "#E8B730",
+      "textColor": "#0A0F0B",
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    },
+    "buttonSecondary": {
+      "background": "#25D366",
+      "textColor": "#FFFFFF",
+      "borderRadius": "0px",
+      "borderRadiusCorners": {
+        "topLeft": "0px",
+        "topRight": "0px",
+        "bottomRight": "0px",
+        "bottomLeft": "0px"
+      },
+      "shadow": "none"
+    }
+  },
+  "images": {
+    "logo": "File saved at: attached_assets/logo.svg",
+    "favicon": "File saved at: attached_assets/favicon.ico",
+    "ogImage": "File saved at: attached_assets/ogImage.png",
+    "logoHref": "File saved at: attached_assets/logoHref.html",
+    "logoAlt": "D-ONE EQUIPMENT logo"
+  },
+  "__llm_logo_reasoning": {
+    "selectedIndex": 0,
+    "reasoning": "Selected #0 because it is visible, located in the header, matches the brand name 'D-ONE EQUIPMENT', and links to the homepage.",
+    "confidence": 0.9,
+    "source": "llm"
+  },
+  "__llm_button_reasoning": {
+    "primary": {
+      "index": 0,
+      "text": "Demander un devis",
+      "reasoning": "Button #0 'Demander un devis' uses a vibrant brand color (#E8B730) and is labeled with a strong call-to-action, making it the primary CTA."
+    },
+    "secondary": {
+      "index": 3,
+      "text": "WhatsApp",
+      "reasoning": "Button #3 'WhatsApp' uses a different vibrant color (#25D366) and serves as a secondary communication option, making it a suitable secondary CTA."
+    },
+    "confidence": 0.95
+  },
+  "personality": {
+    "tone": "professional",
+    "energy": "medium",
+    "targetAudience": "Businesses and contractors in Cameroon looking for heavy equipment rental services."
+  },
+  "designSystem": {
+    "framework": "tailwind",
+    "componentLibrary": ""
+  },
+  "confidence": {
+    "buttons": 0.95,
+    "colors": 0.9,
+    "overall": 0.925
+  },
+  "__llm_metadata": {
+    "logoSelection": {
+      "llmCalled": true,
+      "llmSucceeded": true,
+      "finalSource": "llm",
+      "rawLogoSelection": {
+        "selectedLogoIndex": 0,
+        "selectedLogoReasoning": "Selected #0 because it is visible, located in the header, matches the brand name 'D-ONE EQUIPMENT', and links to the homepage.",
+        "confidence": 0.9
+      }
+    },
+    "buttonClassification": {
+      "llmCalled": true,
+      "llmSucceeded": true
+    }
+  }
+}
