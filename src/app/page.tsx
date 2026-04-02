@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Truck,
+  Shovel,
+  UserCheck,
+  Wrench,
+  Phone,
+  MessageCircle,
+  ClipboardList,
+  CheckCircle2,
+} from "lucide-react";
 
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
-import { company, fleet, services, references } from "@/data/site";
+import { company, fleet, references } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -14,8 +24,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/",
 });
 
-const featuredMachine = fleet[0];
-
 function WhatsAppIconInline() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 shrink-0" aria-hidden="true">
@@ -24,11 +32,61 @@ function WhatsAppIconInline() {
   );
 }
 
+const services = [
+  {
+    icon: Truck,
+    title: "Location de chargeuses",
+    summary: "Chargement, manutention et terrassement. Machines récentes, prêtes à l'emploi.",
+  },
+  {
+    icon: Shovel,
+    title: "Location de pelles",
+    summary: "Excavation, VRD et préparation de plateforme. Adaptées à tous types de chantiers.",
+  },
+  {
+    icon: UserCheck,
+    title: "Avec chauffeur qualifié",
+    summary: "Opérateurs expérimentés inclus. Démarrage immédiat, sans formation requise.",
+  },
+  {
+    icon: Wrench,
+    title: "Support technique",
+    summary: "Suivi mécanique pendant toute la durée de location. Intervention rapide garantie.",
+  },
+];
+
+const steps = [
+  {
+    icon: MessageCircle,
+    num: "01",
+    title: "Contactez-nous",
+    text: "WhatsApp ou formulaire — réponse en moins de 24h.",
+  },
+  {
+    icon: ClipboardList,
+    num: "02",
+    title: "Décrivez votre chantier",
+    text: "Nature du travail, durée, localisation. On s'adapte à votre besoin.",
+  },
+  {
+    icon: Phone,
+    num: "03",
+    title: "Devis sur mesure",
+    text: "Proposition claire, sans surprise. Prix adapté au Cameroun.",
+  },
+  {
+    icon: CheckCircle2,
+    num: "04",
+    title: "Engin sur site",
+    text: "Livraison à Douala, Yaoundé ou Kribi. Chantier lancé.",
+  },
+];
+
 export default function Home() {
   return (
     <>
-      {/* ========== HERO FULLSCREEN ========== */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* ========== HERO ========== */}
+      <section className="relative min-h-screen flex items-end overflow-hidden">
         <Image
           src="/media/hero-loader-action.png"
           alt="Chargeuse en action sur un chantier au Cameroun"
@@ -37,31 +95,23 @@ export default function Home() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,15,11,0.3)] via-[rgba(10,15,11,0.45)] to-[rgba(10,15,11,0.88)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,15,11,0.1)] via-[rgba(10,15,11,0.4)] to-[rgba(10,15,11,0.95)]" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 lg:px-8 lg:pb-28">
           <AnimateIn>
-            <p className="eyebrow !text-[var(--gold)]">
-              D-ONE EQUIPMENT
-            </p>
-            <h1 className="mt-5 max-w-4xl font-display text-[clamp(3.2rem,7.5vw,7rem)] font-bold leading-[0.92] tracking-[0.03em] text-white uppercase">
+            <p className="eyebrow !text-[var(--gold)]">D-ONE EQUIPMENT</p>
+            <h1 className="mt-4 max-w-4xl font-display text-[clamp(3.5rem,8vw,7.5rem)] font-bold leading-[0.9] tracking-[0.02em] text-white uppercase">
               {company.slogan}
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-white/60 uppercase tracking-[0.06em]">
+            <p className="mt-5 text-base text-white/55 uppercase tracking-[0.1em]">
               Location d&apos;engins lourds · Douala · Yaoundé · Kribi
             </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/contact#devis" className="btn-primary">
                 Demander un devis
               </Link>
               {company.whatsappUrl && (
-                <Link
-                  href={company.whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-whatsapp"
-                >
+                <Link href={company.whatsappUrl} target="_blank" rel="noreferrer" className="btn-whatsapp">
                   <WhatsAppIconInline />
                   WhatsApp
                 </Link>
@@ -71,140 +121,192 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== SERVICES — dark panels like Tractafric ========== */}
+      {/* ========== SERVICES — 4 panneaux sombres ========== */}
       <section className="section-dark">
         <StaggerChildren className="grid md:grid-cols-2 lg:grid-cols-4" staggerDelay={0.08}>
-          {services.map((service) => (
-            <StaggerItem key={service.title}>
-              <Link
-                href="/contact#devis"
-                className="group relative flex flex-col justify-end min-h-[320px] p-8 border-r border-b border-[var(--line-on-dark)] hover:bg-white/[0.04] transition"
-              >
-                <h3 className="font-display text-xl font-bold uppercase tracking-[0.06em] text-white">
-                  {service.title}
-                </h3>
-                <p className="mt-2 text-sm text-[var(--muted-on-dark)] leading-relaxed">
-                  {service.summary}
-                </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold)] group-hover:gap-3 transition-all">
-                  En savoir plus <ArrowRight className="h-3.5 w-3.5" />
-                </span>
-              </Link>
-            </StaggerItem>
-          ))}
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <StaggerItem key={service.title}>
+                <Link
+                  href="/contact#devis"
+                  className="group flex flex-col gap-5 p-8 min-h-[280px] border-r border-b border-[var(--line-on-dark)] hover:bg-white/[0.05] transition"
+                >
+                  <div className="flex h-12 w-12 items-center justify-center border border-[var(--gold)]/30 text-[var(--gold)]">
+                    <Icon className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold uppercase tracking-[0.06em] text-white">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-[var(--muted-on-dark)] leading-relaxed">
+                      {service.summary}
+                    </p>
+                  </div>
+                  <span className="mt-auto inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold)] group-hover:gap-3 transition-all">
+                    Devis gratuit <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </Link>
+              </StaggerItem>
+            );
+          })}
         </StaggerChildren>
       </section>
 
-      {/* ========== MACHINE EN VEDETTE — full-width split ========== */}
-      <section className="section-light">
-        <div className="grid lg:grid-cols-2">
-          {/* Image */}
-          <AnimateIn className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[550px]">
-            <Image
-              src={featuredMachine.image}
-              alt={featuredMachine.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
+      {/* ========== COMMENT ÇA MARCHE ========== */}
+      <section className="section-light section-spacing">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <AnimateIn>
+            <p className="eyebrow">Processus simple</p>
+            <h2 className="mt-4 section-title max-w-lg">
+              Votre engin sur site en 4 étapes.
+            </h2>
           </AnimateIn>
 
-          {/* Info */}
-          <AnimateIn delay={0.1} direction="left" className="flex items-center">
-            <div className="p-10 lg:p-16 space-y-6 w-full">
-              <span className="tag">
-                {featuredMachine.badge}
-              </span>
-              <h2 className="font-display text-[clamp(2.5rem,4.5vw,5rem)] font-bold leading-[0.95] uppercase tracking-[0.03em] text-[var(--foreground)]">
-                {featuredMachine.name}
-              </h2>
-
-              <div className="grid grid-cols-2 gap-3">
-                {featuredMachine.specs.slice(0, 4).map((spec) => (
-                  <div key={spec.label} className="border border-[var(--line)] p-4">
-                    <p className="text-[11px] uppercase tracking-[0.14em] text-[var(--muted)] font-bold">
-                      {spec.label}
+          <StaggerChildren className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
+            {steps.map((step) => {
+              const Icon = step.icon;
+              return (
+                <StaggerItem key={step.num}>
+                  <div className="relative">
+                    <span className="font-display text-[5rem] font-bold leading-none text-[var(--line)] select-none">
+                      {step.num}
+                    </span>
+                    <div className="mt-2 flex h-11 w-11 items-center justify-center bg-[var(--gold)] text-[var(--surface-ink)]">
+                      <Icon className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <h3 className="mt-4 font-display text-lg font-bold uppercase tracking-[0.06em]">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
+                      {step.text}
                     </p>
-                    <p className="mt-1 text-xl font-bold font-display">{spec.value}</p>
                   </div>
-                ))}
-              </div>
+                </StaggerItem>
+              );
+            })}
+          </StaggerChildren>
 
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Link href={`/flotte/${featuredMachine.slug}`} className="btn-primary">
-                  Voir la fiche
-                </Link>
-                <Link href="/flotte" className="btn-secondary">
-                  Toute la flotte <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
+          <AnimateIn delay={0.3} className="mt-12">
+            <Link href="/contact#devis" className="btn-primary">
+              Demander un devis <ArrowRight className="h-4 w-4" />
+            </Link>
           </AnimateIn>
         </div>
       </section>
 
-      {/* ========== ZONES D'INTERVENTION — dark section with stats ========== */}
-      <section className="section-dark section-spacing">
+      {/* ========== NOS ENGINS — cartes visuelles, pas de specs ========== */}
+      <section className="section-alt section-spacing">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <AnimateIn>
-            <h2 className="section-title-centered text-white">
-              Zones d&apos;intervention
-            </h2>
+          <AnimateIn className="flex items-end justify-between gap-6 flex-wrap">
+            <div>
+              <p className="eyebrow">Notre flotte</p>
+              <h2 className="mt-4 section-title">Nos engins disponibles.</h2>
+            </div>
+            <Link href="/flotte" className="btn-secondary shrink-0">
+              Voir toute la flotte <ArrowRight className="h-4 w-4" />
+            </Link>
           </AnimateIn>
 
-          <StaggerChildren className="mt-14 grid gap-5 md:grid-cols-3" staggerDelay={0.1}>
-            {references.map((ref) => (
-              <StaggerItem key={ref.title}>
-                <div className="group overflow-hidden border border-[var(--line-on-dark)]">
-                  <div className="relative aspect-[16/10] overflow-hidden">
+          <StaggerChildren className="mt-12 grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
+            {fleet.map((machine) => (
+              <StaggerItem key={machine.slug}>
+                <Link
+                  href={`/flotte/${machine.slug}`}
+                  className="group block overflow-hidden border border-[var(--line)] bg-[var(--background)] hover:border-[var(--gold)] transition-colors"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[var(--surface)]">
                     <Image
-                      src={ref.image}
-                      alt={ref.title}
+                      src={machine.image}
+                      alt={machine.name}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
+                    <span className="absolute top-4 left-4 tag text-[10px]">
+                      {machine.type}
+                    </span>
                   </div>
-                  <div className="p-6 border-t border-[var(--line-on-dark)]">
-                    <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--gold)]">
+                  <div className="p-6">
+                    <h3 className="font-display text-xl font-bold uppercase tracking-[0.04em]">
+                      {machine.name}
+                    </h3>
+                    <p className="mt-1 text-sm text-[var(--muted)]">{machine.capacity} · {machine.brand}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em] text-[var(--gold)] group-hover:gap-3 transition-all">
+                      Voir la fiche <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+        </div>
+      </section>
+
+      {/* ========== ZONES D'INTERVENTION ========== */}
+      <section className="section-dark section-spacing">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <AnimateIn className="flex items-end justify-between gap-6 flex-wrap">
+            <div>
+              <p className="eyebrow text-[var(--gold)]">Présence terrain</p>
+              <h2 className="mt-4 section-title text-white">Là où vous construisez.</h2>
+            </div>
+            <div className="flex gap-6 text-sm">
+              {company.areas.map((area) => (
+                <span key={area} className="font-display font-bold uppercase tracking-[0.1em] text-white/40 text-lg">
+                  {area}
+                </span>
+              ))}
+            </div>
+          </AnimateIn>
+
+          <StaggerChildren className="mt-12 grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
+            {references.map((ref) => (
+              <StaggerItem key={ref.title}>
+                <div className="group relative overflow-hidden aspect-[4/3]">
+                  <Image
+                    src={ref.image}
+                    alt={ref.title}
+                    fill
+                    className="object-cover transition-transform duration-600 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,15,11,0.85)] via-[rgba(10,15,11,0.2)] to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold)]">
                       {ref.location}
                     </span>
-                    <h3 className="mt-2 font-display text-lg font-bold uppercase tracking-[0.04em] text-white">
+                    <h3 className="mt-1 font-display text-base font-bold uppercase tracking-[0.04em] text-white">
                       {ref.title}
                     </h3>
-                    <p className="mt-2 text-sm text-[var(--muted-on-dark)] leading-relaxed">
-                      {ref.description}
-                    </p>
                   </div>
                 </div>
               </StaggerItem>
             ))}
           </StaggerChildren>
 
-          {/* Stats row */}
-          <AnimateIn className="mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4" delay={0.2}>
-            <div className="stat-item">
-              <p className="stat-value text-[var(--gold)]">3</p>
-              <p className="stat-label text-[var(--muted-on-dark)]">Zones</p>
-            </div>
-            <div className="stat-item">
-              <p className="stat-value text-white">5T</p>
-              <p className="stat-label text-[var(--muted-on-dark)]">Capacité max</p>
-            </div>
-            <div className="stat-item">
-              <p className="stat-value text-white">2024</p>
-              <p className="stat-label text-[var(--muted-on-dark)]">Machines neuves</p>
-            </div>
-            <div className="stat-item">
-              <p className="stat-value text-[var(--gold)]">24h</p>
-              <p className="stat-label text-[var(--muted-on-dark)]">Réponse devis</p>
-            </div>
+          <AnimateIn className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line-on-dark)]" delay={0.2}>
+            {[
+              { value: "3", label: "Zones couvertes" },
+              { value: "5T", label: "Capacité max" },
+              { value: "2024", label: "Machines neuves" },
+              { value: "24h", label: "Réponse devis" },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-[var(--surface-ink)] text-center py-8 px-4">
+                <p className="font-display text-[2.8rem] font-bold leading-none text-[var(--gold)]">
+                  {stat.value}
+                </p>
+                <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.12em] text-white/40">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </AnimateIn>
         </div>
       </section>
 
       {/* ========== CTA FINAL ========== */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden min-h-[480px] flex items-center">
         <Image
           src="/media/aerial-construction-site.png"
           alt="Vue aérienne chantier camerounais"
@@ -212,32 +314,25 @@ export default function Home() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,15,11,0.92)] to-[rgba(10,15,11,0.7)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,15,11,0.95)] via-[rgba(10,15,11,0.8)] to-[rgba(10,15,11,0.3)]" />
 
-        <AnimateIn className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32">
-          <div className="max-w-2xl">
-            <p className="eyebrow">
-              Contact
-            </p>
-            <h2 className="mt-5 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[1] uppercase tracking-[0.03em] text-white">
-              Parlez-nous de votre chantier.
+        <AnimateIn className="relative z-10 mx-auto max-w-7xl w-full px-6 py-24 lg:px-8">
+          <div className="max-w-xl">
+            <p className="eyebrow">Parlez-nous de votre chantier</p>
+            <h2 className="mt-4 font-display text-[clamp(2.5rem,5vw,4.5rem)] font-bold leading-[0.95] uppercase tracking-[0.02em] text-white">
+              Devis gratuit. Réponse rapide.
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-white/55">
-              Décrivez votre besoin, la durée et la localisation. Réponse rapide garantie.
+            <p className="mt-4 text-base text-white/50">
+              Décrivez votre besoin — durée, zone, type d&apos;engin. On revient vers vous en moins de 24h.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/contact#devis" className="btn-primary">
                 Demander un devis
               </Link>
               {company.whatsappUrl && (
-                <Link
-                  href={company.whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-whatsapp"
-                >
+                <Link href={company.whatsappUrl} target="_blank" rel="noreferrer" className="btn-whatsapp">
                   <WhatsAppIconInline />
-                  WhatsApp
+                  WhatsApp direct
                 </Link>
               )}
             </div>
