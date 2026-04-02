@@ -113,7 +113,7 @@ export async function POST(request: Request) {
   `;
 
   const { error } = await resend.emails.send({
-    from: "D-ONE EQUIPMENT <onboarding@resend.dev>",
+    from: "D-ONE EQUIPMENT <devis@donequipment.com>",
     to: notificationEmail,
     replyTo: body.email,
     subject: `Nouvelle demande de devis — ${body.firstName} ${body.lastName}`,
