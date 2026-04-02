@@ -129,7 +129,7 @@ export default function ReferencesPage() {
               <Link href="/contact#devis" className="btn-primary">
                 Demander un devis <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/flotte" className="btn-secondary text-white">
+              <Link href="/flotte" className="btn-secondary border-t-[#ffffff] border-r-[#ffffff] border-b-[#ffffff] border-l-[#ffffff] text-[#ffffff]">
                 Voir nos engins <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

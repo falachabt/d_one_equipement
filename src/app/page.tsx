@@ -110,7 +110,7 @@ export default function Home() {
               <Link href="/contact#devis" className="btn-primary">
                 Demander un devis
               </Link>
-              <Link href="/flotte" className="btn-secondary text-white">
+              <Link href="/flotte" className="btn-secondary border-t-[#ffffff] border-r-[#ffffff] border-b-[#ffffff] border-l-[#ffffff] text-[#ffffff]">
                 Voir nos engins
               </Link>
               {company.whatsappUrl && (
