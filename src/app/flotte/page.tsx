@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { FleetCatalog } from "@/components/fleet-catalog";
 import { PageHero } from "@/components/page-hero";
@@ -37,6 +39,25 @@ export default function FleetPage() {
           <div className="mt-12">
             <FleetCatalog items={fleet} />
           </div>
+
+          <AnimateIn delay={0.2} className="mt-16 border-t border-[var(--line)] pt-14">
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="eyebrow">Vous avez un chantier ?</p>
+                <h2 className="mt-3 section-title max-w-md">
+                  Demandez un devis pour l'engin qu'il vous faut.
+                </h2>
+              </div>
+              <div className="flex flex-col gap-3 sm:shrink-0">
+                <Link href="/contact#devis" className="btn-primary">
+                  Demander un devis <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/services" className="btn-secondary text-center">
+                  Voir nos services <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </AnimateIn>
         </div>
       </section>
     </>

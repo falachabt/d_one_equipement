@@ -81,7 +81,7 @@ export const company = {
           "Bonjour D-ONE EQUIPMENT, je souhaite demander un devis pour un engin."
         )}`
       : null,
-  areas: ["Douala", "Yaoundé", "Kribi"],
+  areas: ["Tout le Cameroun"],
   socialLinks: {
     facebook: "https://www.facebook.com/share/1C77kCq4Tf/",
     instagram: "https://www.instagram.com/donequipment",
@@ -99,6 +99,8 @@ export const company = {
 export const navItems: NavItem[] = [
   { href: "/", label: "Accueil" },
   { href: "/flotte", label: "Flotte" },
+  { href: "/services", label: "Services" },
+  { href: "/references", label: "Références" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];

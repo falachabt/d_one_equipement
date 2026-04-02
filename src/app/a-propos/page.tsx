@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Shield, Zap, Globe } from "lucide-react";
+import Link from "next/link";
+import { Shield, Zap, Globe, ArrowRight } from "lucide-react";
 
 import { PageHero } from "@/components/page-hero";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
@@ -27,7 +28,7 @@ const pillars = [
   {
     icon: Globe,
     title: "Ancrage local",
-    text: "Douala, Yaoundé, Kribi et tout le Cameroun.",
+    text: "Présence terrain partout au Cameroun, coordination depuis l'Allemagne.",
   },
 ];
 
@@ -85,6 +86,30 @@ export default function AboutPage() {
               );
             })}
           </StaggerChildren>
+        </div>
+      </section>
+
+      <section className="section-alt section-spacing border-t border-[var(--line)]">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <AnimateIn className="flex flex-wrap items-center justify-between gap-8">
+            <div className="max-w-xl">
+              <p className="eyebrow">Votre prochain chantier</p>
+              <h2 className="mt-4 section-title">
+                Un engin disponible. Un devis rapide.
+              </h2>
+              <p className="mt-4 text-[var(--muted)] leading-relaxed">
+                Décrivez votre besoin — nature du travail, durée, localisation. On s'adapte à votre chantier.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/flotte" className="btn-secondary">
+                Voir nos engins <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/contact#devis" className="btn-primary">
+                Demander un devis <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </AnimateIn>
         </div>
       </section>
     </>

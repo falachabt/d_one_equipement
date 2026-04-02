@@ -72,13 +72,13 @@ const steps = [
     icon: Phone,
     num: "03",
     title: "Devis sur mesure",
-    text: "Proposition claire, sans surprise. Prix adapté au Cameroun.",
+    text: "Proposition claire, sans surprise. Réponse sous 24h.",
   },
   {
     icon: CheckCircle2,
     num: "04",
     title: "Engin sur site",
-    text: "Livraison à Douala, Yaoundé ou Kribi. Chantier lancé.",
+    text: "Livraison partout au Cameroun. Chantier lancé.",
   },
 ];
 
@@ -104,11 +104,14 @@ export default function Home() {
               {company.slogan}
             </h1>
             <p className="mt-5 text-base text-white/55 uppercase tracking-[0.1em]">
-              Location d&apos;engins lourds · Douala · Yaoundé · Kribi
+              Location d&apos;engins lourds · Tout le Cameroun
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/contact#devis" className="btn-primary">
                 Demander un devis
+              </Link>
+              <Link href="/flotte" className="btn-secondary text-white">
+                Voir nos engins
               </Link>
               {company.whatsappUrl && (
                 <Link href={company.whatsappUrl} target="_blank" rel="noreferrer" className="btn-whatsapp">
@@ -129,7 +132,7 @@ export default function Home() {
             return (
               <StaggerItem key={service.title}>
                 <Link
-                  href="/contact#devis"
+                  href="/services"
                   className="group flex flex-col gap-5 p-8 min-h-[280px] border-r border-b border-[var(--line-on-dark)] hover:bg-white/[0.05] transition"
                 >
                   <div className="flex h-12 w-12 items-center justify-center border border-[var(--gold)]/30 text-[var(--gold)]">
@@ -144,7 +147,7 @@ export default function Home() {
                     </p>
                   </div>
                   <span className="mt-auto inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold)] group-hover:gap-3 transition-all">
-                    Devis gratuit <ArrowRight className="h-3.5 w-3.5" />
+                    En savoir plus <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </Link>
               </StaggerItem>
@@ -251,19 +254,15 @@ export default function Home() {
               <p className="eyebrow text-[var(--gold)]">Présence terrain</p>
               <h2 className="mt-4 section-title text-white">Là où vous construisez.</h2>
             </div>
-            <div className="flex gap-6 text-sm">
-              {company.areas.map((area) => (
-                <span key={area} className="font-display font-bold uppercase tracking-[0.1em] text-white/40 text-lg">
-                  {area}
-                </span>
-              ))}
-            </div>
+            <Link href="/references" className="text-sm font-bold uppercase tracking-[0.1em] text-white/40 hover:text-[var(--gold)] transition flex items-center gap-2">
+              Voir nos références <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </AnimateIn>
 
           <StaggerChildren className="mt-12 grid gap-4 md:grid-cols-3" staggerDelay={0.08}>
             {references.map((ref) => (
               <StaggerItem key={ref.title}>
-                <div className="group relative overflow-hidden aspect-[4/3]">
+                <Link href="/references" className="group relative overflow-hidden aspect-[4/3] block">
                   <Image
                     src={ref.image}
                     alt={ref.title}
@@ -280,17 +279,16 @@ export default function Home() {
                       {ref.title}
                     </h3>
                   </div>
-                </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerChildren>
 
-          <AnimateIn className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line-on-dark)]" delay={0.2}>
+          <AnimateIn className="mt-10 grid grid-cols-3 gap-px bg-[var(--line-on-dark)]" delay={0.2}>
             {[
-              { value: "3", label: "Zones couvertes" },
-              { value: "5T", label: "Capacité max" },
-              { value: "2024", label: "Machines neuves" },
+              { value: "100%", label: "Machines neuves 2025" },
               { value: "24h", label: "Réponse devis" },
+              { value: "3+", label: "Secteurs d'activité" },
             ].map((stat) => (
               <div key={stat.label} className="bg-[var(--surface-ink)] text-center py-8 px-4">
                 <p className="font-display text-[2.8rem] font-bold leading-none text-[var(--gold)]">

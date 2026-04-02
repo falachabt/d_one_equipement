@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact et devis",
   description:
-    "Contactez D-ONE EQUIPMENT pour un devis rapide. WhatsApp, téléphone ou formulaire. Douala, Yaoundé, Kribi.",
+    "Contactez D-ONE EQUIPMENT pour un devis rapide. WhatsApp, téléphone ou formulaire. Partout au Cameroun.",
   path: "/contact",
 });
 
@@ -38,9 +38,9 @@ const contactItems = [
   },
   {
     icon: MapPin,
-    label: "Zones d'intervention",
-    value: company.areas.join(" · "),
-    href: "#carte",
+    label: "Zone d'intervention",
+    value: "Tout le Cameroun",
+    href: "/references",
   },
 ];
 
