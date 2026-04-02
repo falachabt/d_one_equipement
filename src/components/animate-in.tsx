@@ -1,7 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+
+function useIsInIframe() {
+  const [inIframe, setInIframe] = useState(false);
+  useEffect(() => {
+    try {
+      setInIframe(window.self !== window.top);
+    } catch {
+      setInIframe(true);
+    }
+  }, []);
+  return inIframe;
+}
 
 type AnimateInProps = {
   children: React.ReactNode;
@@ -16,12 +28,9 @@ export function AnimateIn({
   delay = 0,
   direction = "up",
 }: AnimateInProps) {
-  const [triggered, setTriggered] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setTriggered(true), 350 + delay * 1000);
-    return () => clearTimeout(timer);
-  }, [delay]);
+  const inIframe = useIsInIframe();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0 });
 
   const offsets = {
     up: { y: 28, x: 0 },
@@ -31,13 +40,14 @@ export function AnimateIn({
     none: { y: 0, x: 0 },
   };
 
+  const shouldShow = inIframe || inView;
+
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial={{ opacity: 0, ...offsets[direction] }}
-      animate={triggered ? { opacity: 1, y: 0, x: 0 } : undefined}
-      whileInView={{ opacity: 1, y: 0, x: 0 }}
-      viewport={{ once: true, amount: 0 }}
+      animate={shouldShow ? { opacity: 1, y: 0, x: 0 } : {}}
       transition={{ duration: 0.52, ease: [0.25, 0.46, 0.45, 0.94], delay }}
     >
       {children}
@@ -56,20 +66,18 @@ export function StaggerChildren({
   className,
   staggerDelay = 0.1,
 }: StaggerChildrenProps) {
-  const [triggered, setTriggered] = useState(false);
+  const inIframe = useIsInIframe();
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0 });
 
-  useEffect(() => {
-    const timer = setTimeout(() => setTriggered(true), 350);
-    return () => clearTimeout(timer);
-  }, []);
+  const shouldShow = inIframe || inView;
 
   return (
     <motion.div
+      ref={ref}
       className={className}
       initial="hidden"
-      animate={triggered ? "visible" : undefined}
-      whileInView="visible"
-      viewport={{ once: true, amount: 0 }}
+      animate={shouldShow ? "visible" : "hidden"}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },
