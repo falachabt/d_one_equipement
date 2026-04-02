@@ -166,12 +166,25 @@ textarea {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  border: 2px solid white;
+  border: 2px solid var(--surface-ink);
   background: transparent;
-  color: white;
+  color: var(--surface-ink);
 }
 
 .btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Auto-flip to white in dark contexts */
+.section-dark .btn-secondary,
+.hero-overlay ~ * .btn-secondary,
+[class*="bg-[rgba(10"] .btn-secondary {
+  border-color: white;
+  color: white;
+}
+
+.section-dark .btn-secondary:hover,
+.hero-overlay ~ * .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.08);
 }
 

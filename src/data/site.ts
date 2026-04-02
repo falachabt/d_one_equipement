@@ -61,7 +61,7 @@ export type ArticleItem = {
 const fallbackPhone =
   process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+49 1573 8304306";
 const fallbackEmail =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@d-one-equipment.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@donequipment.com";
 const whatsappSource = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? fallbackPhone;
 const whatsappDigits = whatsappSource.replace(/\D/g, "");
 
