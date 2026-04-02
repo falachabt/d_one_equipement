@@ -52,7 +52,11 @@ const localBusinessSchema = {
   email: company.email,
   areaServed: company.areas,
   url: siteUrl,
-  sameAs: [],
+  sameAs: [
+    company.socialLinks.facebook,
+    company.socialLinks.instagram,
+    company.socialLinks.linkedin,
+  ],
 };
 
 export default function RootLayout({

@@ -4,7 +4,6 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 import { QuoteForm } from "@/components/quote-form";
 import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
 import { company } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
@@ -12,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact et devis",
   description:
-    "Contactez D-ONE EQUIPMENT pour une demande de devis, un renseignement sur la flotte ou une intervention terrain. Disponible par WhatsApp, telephone ou formulaire.",
+    "Contactez D-ONE EQUIPMENT pour un devis rapide. WhatsApp, téléphone ou formulaire. Douala, Yaoundé, Kribi.",
   path: "/contact",
 });
 
@@ -30,21 +29,18 @@ const contactItems = [
     label: "Téléphone",
     value: company.phone,
     href: `tel:${company.phone.replace(/\s/g, "")}`,
-    actionLabel: "Appeler",
   },
   {
     icon: Mail,
     label: "Email",
     value: company.email,
     href: `mailto:${company.email}`,
-    actionLabel: "Écrire",
   },
   {
     icon: MapPin,
     label: "Zones d'intervention",
     value: company.areas.join(" · "),
     href: "#carte",
-    actionLabel: "Voir la carte",
   },
 ];
 
@@ -53,97 +49,72 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Contact commercial et demande de devis."
-        description="Retrouvez ici les coordonnées de D-ONE EQUIPMENT, le formulaire de devis et les principales zones d'intervention."
-        image="/media/shantui-case-2.jpg"
+        title="Parlons de votre projet."
+        description="Devis rapide, coordonnées et zones d'intervention."
+        image="/media/loader-closeup-dramatic.png"
       />
 
-      <section className="mx-auto max-w-7xl px-6 py-18 lg:px-8" id="devis">
-        <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
-          <div className="space-y-6">
-            <AnimateIn>
-              <SectionHeading
-                eyebrow="Coordonnées"
-                title="Coordonnées et zones d'intervention."
-                copy="Appelez, écrivez ou envoyez votre besoin via le formulaire de devis."
-              />
-            </AnimateIn>
+      <section className="section-spacing" id="devis">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+            {/* Left: contact info */}
+            <div className="space-y-8">
+              <AnimateIn>
+                <div>
+                  <p className="eyebrow">Coordonnées</p>
+                  <h2 className="mt-4 section-title">Contactez-nous.</h2>
+                </div>
+              </AnimateIn>
 
-            {/* Contact cards */}
-            <StaggerChildren className="overflow-hidden border border-[var(--line)] bg-white" staggerDelay={0.08}>
-              {contactItems.map(({ icon: Icon, label, value, href, actionLabel }) => (
-                <StaggerItem key={label}>
-                  <div className="border-b border-[var(--line)] px-5 py-5 last:border-b-0">
-                    <div className="flex items-start gap-4">
-                      <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--line)] bg-[var(--surface)]">
-                        <Icon className="h-4 w-4 text-[var(--forest)]" strokeWidth={1.75} />
+              <StaggerChildren className="space-y-4" staggerDelay={0.08}>
+                {contactItems.map(({ icon: Icon, label, value, href }) => (
+                  <StaggerItem key={label}>
+                    <Link href={href} className="line-card flex items-center gap-4 hover:border-[var(--forest)] transition group">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--forest-light)] group-hover:bg-[var(--forest)] transition">
+                        <Icon className="h-5 w-5 text-[var(--forest)] group-hover:text-white transition" strokeWidth={1.6} />
                       </div>
-                      <div className="min-w-0 flex-1">
+                      <div>
                         <p className="data-label">{label}</p>
-                        <p className="mt-2 text-base leading-7 text-[var(--foreground)]">
+                        <p className="mt-1 text-base font-semibold text-[var(--foreground)]">
                           {value}
                         </p>
-                        <Link
-                          href={href}
-                          className="mt-2 inline-flex text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--forest)] transition hover:text-[var(--forest-deep)]"
-                        >
-                          {actionLabel} →
-                        </Link>
                       </div>
+                    </Link>
+                  </StaggerItem>
+                ))}
+              </StaggerChildren>
+
+              {/* WhatsApp CTA */}
+              {company.whatsappUrl && (
+                <AnimateIn delay={0.2}>
+                  <Link
+                    href={company.whatsappUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-4 rounded-2xl border border-[#25D366]/30 bg-[#f0fdf4] p-5 transition hover:bg-[#dcfce7] hover:border-[#25D366]/50"
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#25D366]">
+                      <WhatsAppIcon />
                     </div>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerChildren>
+                    <div>
+                      <p className="text-sm font-bold text-[#15803d]">
+                        Contacter via WhatsApp
+                      </p>
+                      <p className="mt-0.5 text-xs text-[#166534]">
+                        Message pré-rempli · Réponse rapide
+                      </p>
+                    </div>
+                    <span className="ml-auto text-lg text-[#15803d]">→</span>
+                  </Link>
+                </AnimateIn>
+              )}
+            </div>
 
-            {/* WhatsApp CTA */}
-            {company.whatsappUrl ? (
-              <AnimateIn delay={0.15}>
-                <Link
-                  href={company.whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-4 border border-[#25D366]/30 bg-[#f0fdf4] p-5 transition hover:bg-[#dcfce7]"
-                >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#25D366]">
-                    <WhatsAppIcon />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-[#15803d]">Contacter via WhatsApp</p>
-                    <p className="mt-0.5 text-xs text-[#166534]">
-                      Message pré-rempli · Réponse rapide
-                    </p>
-                  </div>
-                  <span className="ml-auto text-[#15803d]">→</span>
-                </Link>
-              </AnimateIn>
-            ) : null}
+            {/* Right: form */}
+            <AnimateIn delay={0.1} direction="left">
+              <QuoteForm />
+            </AnimateIn>
           </div>
-
-          <AnimateIn delay={0.1} direction="left">
-            <QuoteForm />
-          </AnimateIn>
-        </div>
-
-        {/* Map */}
-        <div id="carte">
-        <AnimateIn delay={0.1} className="mt-12">
-          <SectionHeading
-            eyebrow="Carte"
-            title="Douala, Yaounde, Kribi et couverture nationale."
-            copy="Les zones prioritaires sont Douala, Yaounde et Kribi, avec possibilité d'intervention partout au Cameroun selon le besoin."
-          />
-
-          <div className="mt-8 overflow-hidden border border-[var(--line)] bg-white">
-            <iframe
-              title="Carte des zones d'intervention D-ONE EQUIPMENT"
-              src="https://www.google.com/maps?q=Cameroon&output=embed"
-              className="h-[420px] w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </AnimateIn>
         </div>
       </section>
     </>

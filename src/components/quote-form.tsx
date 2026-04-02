@@ -72,14 +72,12 @@ export function QuoteForm() {
 
   return (
     <form onSubmit={handleSubmit} className="line-card space-y-6">
-      <div className="border-b border-[var(--line)] pb-5">
-        <p className="eyebrow">Formulaire</p>
-        <h2 className="mt-4 font-display text-3xl font-semibold text-[var(--foreground)]">
+      <div className="pb-4">
+        <h2 className="font-display text-2xl font-bold text-[var(--foreground)]">
           Demande de devis
         </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--muted)]">
-          Renseignez les informations principales du chantier. L&apos;equipe pourra
-          revenir vers vous avec une proposition adaptee au besoin.
+        <p className="mt-2 text-sm text-[var(--muted)]">
+          Décrivez votre besoin. Réponse sous 24h.
         </p>
       </div>
 

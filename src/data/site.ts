@@ -66,10 +66,11 @@ const whatsappDigits = whatsappSource.replace(/\D/g, "");
 
 export const company = {
   name: "D-ONE EQUIPMENT",
-  slogan: "La puissance au service de vos chantiers.",
-  altSlogan: "Powering your projects.",
+  slogan: "Neuf. Expérimenté. Fiable.",
+  altSlogan: "New. Experienced. Reliable.",
+  // TODO: Slogan alternatif pour plus tard → "La puissance, là où vous en avez besoin."
   description:
-    "D-ONE EQUIPMENT accompagne les chantiers BTP, industriels et portuaires au Cameroun avec une offre de location d'engins lourds claire, fiable et orientee terrain.",
+    "Location d'engins lourds au Cameroun. Chargeuses et pelles pour chantiers BTP, industrie et logistique.",
   longDescription:
     "D-ONE EQUIPMENT met a disposition des engins adaptes aux besoins de chargement, manutention, terrassement et exploitation de plateforme.",
   phone: fallbackPhone,
@@ -80,7 +81,12 @@ export const company = {
           "Bonjour D-ONE EQUIPMENT, je souhaite demander un devis pour un engin."
         )}`
       : null,
-  areas: ["Douala", "Yaounde", "Kribi", "Partout au Cameroun"],
+  areas: ["Douala", "Yaoundé", "Kribi"],
+  socialLinks: {
+    facebook: "https://www.facebook.com/share/1C77kCq4Tf/",
+    instagram: "https://www.instagram.com/donequipment",
+    linkedin: "https://www.linkedin.com/company/d-one-equipment",
+  },
   keywords: [
     "location chargeuse Cameroun",
     "location engins BTP Douala",
@@ -92,10 +98,8 @@ export const company = {
 
 export const navItems: NavItem[] = [
   { href: "/", label: "Accueil" },
-  { href: "/services", label: "Services" },
   { href: "/flotte", label: "Flotte" },
-  { href: "/references", label: "References" },
-  { href: "/a-propos", label: "A propos" },
+  { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -319,7 +323,7 @@ export const references: ReferenceItem[] = [
     location: "Douala",
     status: "Environnement logistique",
     description:
-      "Une collaboration qui illustre l'ancrage local de D-ONE EQUIPMENT et sa capacite a intervenir dans des environnements logistiques et operationnels.",
+      "Une collaboration qui prouve l'ancrage local de D-ONE EQUIPMENT sur des besoins logistiques concrets.",
     image: "/media/shantui-case-1.jpg",
   },
   {
@@ -327,7 +331,7 @@ export const references: ReferenceItem[] = [
     location: "Kribi",
     status: "Port et industrie",
     description:
-      "Des besoins lies aux chantiers portuaires, a la manutention et a la preparation de plateforme dans une zone a fort potentiel industriel.",
+      "Un point d'appui pour les besoins portuaires, la manutention et les plateformes industrielles.",
     image: "/media/shantui-gallery-1.jpg",
   },
   {
@@ -335,7 +339,7 @@ export const references: ReferenceItem[] = [
     location: "Yaounde",
     status: "Travaux publics",
     description:
-      "Une offre orientee vers les besoins urbains, VRD et travaux publics avec chargeuses et pelles identifiees par modele.",
+      "Une présence pensée pour les besoins urbains, VRD et travaux publics.",
     image: "/media/shantui-case-2.jpg",
   },
 ];

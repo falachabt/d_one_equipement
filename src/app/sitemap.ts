@@ -7,12 +7,9 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
-    "/services",
     "/flotte",
-    "/references",
     "/a-propos",
     "/contact",
-    "/actualites",
   ];
 
   return [

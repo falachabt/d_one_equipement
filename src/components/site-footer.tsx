@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { company, navItems } from "@/data/site";
+import { SocialLinks } from "@/components/social-links";
 
 function WhatsAppIcon() {
   return (
@@ -12,67 +13,73 @@ function WhatsAppIcon() {
 
 export function SiteFooter() {
   return (
-    <footer className="mt-20 border-t border-[#2b342d] bg-[#18201b] text-[#e8e1d3]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:px-8">
-        <div className="space-y-5">
-          <p className="eyebrow !text-[#f0cd60] before:bg-[#f0cd60]">
-            D-ONE EQUIPMENT
-          </p>
-          <h2 className="font-display text-3xl font-semibold text-white">
-            {company.slogan}
-          </h2>
-          <p className="max-w-xl text-sm leading-7 text-[#c7c1b3]">
-            Site vitrine pour la location d&apos;engins lourds, la demande de devis
-            rapide et la presentation d&apos;une flotte adaptee aux besoins BTP,
-            industriels et portuaires au Cameroun.
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f0cd60]">
-            Navigation
-          </h3>
-          <div className="mt-5 flex flex-col gap-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-[#d7d0c4] transition hover:text-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+    <footer className="bg-[#070b08] border-t border-[var(--line-on-dark)]">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-3">
+          {/* Brand */}
+          <div>
+            <p className="font-display text-2xl font-bold text-white tracking-[0.1em] uppercase">
+              D-ONE <span className="text-[var(--gold)]">Equipment</span>
+            </p>
+            <p className="mt-3 text-sm text-white/40">
+              {company.slogan}
+            </p>
+            <SocialLinks variant="dark" className="mt-5" />
           </div>
-        </div>
 
-        <div>
-          <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f0cd60]">
-            Contact
-          </h3>
-          <div className="mt-5 space-y-3 text-sm text-[#d7d0c4]">
-            <p>{company.phone}</p>
-            <p>{company.email}</p>
-            <p>{company.areas.slice(0, 3).join(" · ")}</p>
-            {company.whatsappUrl ? (
+          {/* Navigation */}
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--gold)] mb-4">
+              Navigation
+            </p>
+            <nav className="flex flex-col gap-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-white/55 hover:text-white transition uppercase tracking-[0.06em]"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--gold)] mb-4">
+              Contact
+            </p>
+            <div className="space-y-2">
+              <p className="text-sm text-white/55">{company.email}</p>
+              <p className="text-sm text-white/55">{company.phone}</p>
+              <p className="text-xs text-white/30 mt-3 uppercase tracking-[0.08em]">
+                {company.areas.join(" · ")}
+              </p>
+            </div>
+            {company.whatsappUrl && (
               <Link
                 href={company.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-none border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-[#4ade80] transition hover:bg-[#25D366]/20 hover:text-white"
+                className="mt-4 inline-flex items-center gap-2 bg-[#25D366] px-4 py-2 text-white transition hover:bg-[#20bd5a]"
                 aria-label="Contacter via WhatsApp"
               >
                 <WhatsAppIcon />
-                <span className="text-xs font-semibold uppercase tracking-[0.1em]">
+                <span className="text-xs font-bold uppercase tracking-[0.1em]">
                   WhatsApp
                 </span>
               </Link>
-            ) : null}
+            )}
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-[#2b342d] px-6 py-5 text-center text-xs uppercase tracking-[0.18em] text-[#998f7d] lg:px-8">
-        © 2026 D-ONE EQUIPMENT · Cameroun · Next.js
+        {/* Copyright */}
+        <div className="mt-12 border-t border-[var(--line-on-dark)] pt-8 text-center">
+          <p className="text-xs text-white/25 tracking-[0.1em] uppercase">
+            © 2026 D-ONE EQUIPMENT · Cameroun
+          </p>
+        </div>
       </div>
     </footer>
   );
