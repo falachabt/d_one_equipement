@@ -166,9 +166,9 @@ textarea {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  border: 2px solid currentColor;
+  border: 2px solid white;
   background: transparent;
-  color: inherit;
+  color: whiet;
 }
 
 .btn-secondary:hover {
@@ -356,12 +356,10 @@ textarea {
 
 /* ===== Hero overlays ===== */
 .hero-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(10, 15, 11, 0.35) 0%,
-    rgba(10, 15, 11, 0.6) 50%,
-    rgba(10, 15, 11, 0.88) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(10, 15, 11, 0.35) 0%,
+      rgba(10, 15, 11, 0.6) 50%,
+      rgba(10, 15, 11, 0.88) 100%);
 }
 
 /* ===== Dark section ===== */
@@ -404,8 +402,13 @@ textarea {
 
 /* ===== Hero video Ken Burns ===== */
 @keyframes hero-ken-burns {
-  0%   { transform: scale(1.08); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .hero-video-bg {
@@ -414,14 +417,28 @@ textarea {
 
 /* ===== Card hover lift ===== */
 @keyframes card-shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* ===== Pulse gold dot ===== */
 @keyframes pulse-gold {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%        { opacity: 0.6; transform: scale(1.15); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
 }
 
 /* ===== Responsive ===== */

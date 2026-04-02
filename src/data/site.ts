@@ -58,7 +58,8 @@ export type ArticleItem = {
   readTime: string;
 };
 
-const fallbackPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+49 1573 8304306";
+const fallbackPhone =
+  process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+49 1573 8304306";
 const fallbackEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@d-one-equipment.com";
 const whatsappSource = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? fallbackPhone;
@@ -78,7 +79,7 @@ export const company = {
   whatsappUrl:
     whatsappDigits.length >= 8
       ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(
-          "Bonjour D-ONE EQUIPMENT, je souhaite demander un devis pour un engin."
+          "Bonjour D-ONE EQUIPMENT, je souhaite demander un devis pour un engin.",
         )}`
       : null,
   areas: ["Tout le Cameroun"],
@@ -109,7 +110,7 @@ export const homeStats: StatItem[] = [
   { value: "5 t", label: "Charge nominale" },
   { value: "162 kW", label: "Puissance machine phare" },
   { value: "3 m3", label: "Capacite du godet" },
-  { value: "3 villes", label: "Douala, Yaounde, Kribi" },
+  { value: "3 villes", label: "Tout le Cameroun" },
 ];
 
 export const services: ServiceItem[] = [
