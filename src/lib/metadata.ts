@@ -11,7 +11,7 @@ export const siteUrl = rawSiteUrl
   ? rawSiteUrl.startsWith("http")
     ? rawSiteUrl
     : `https://${rawSiteUrl}`
-  : "https://example.com";
+  : "https://donequipment.com";
 export const defaultOgImage = "/media/shantui-gallery-1.jpg";
 
 type BuildPageMetadataArgs = {
