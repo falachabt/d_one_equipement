@@ -105,7 +105,7 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
             <div className="grid gap-6 lg:grid-cols-2">
               {item.videos?.map((video) => (
                 <article key={video.file} className="overflow-hidden border border-[var(--line)] bg-[var(--background)]">
-                  <div className="relative border-b border-[var(--line)] bg-black group">
+                  <div className="relative border-b border-[var(--line)] bg-black">
                     <video
                       controls
                       preload="metadata"
@@ -115,11 +115,6 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
                     >
                       <source src={video.file} type="video/mp4" />
                     </video>
-                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-                        <Play className="h-7 w-7 text-white" fill="white" strokeWidth={0} />
-                      </div>
-                    </div>
                   </div>
                   <div className="space-y-2 p-5">
                     <h2 className="font-display text-xl font-bold uppercase tracking-[0.04em] text-[var(--foreground)]">
