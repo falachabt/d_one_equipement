@@ -24,3 +24,27 @@ id = "XoUzfaDJtZVu0tj6sJ9IN"
 uri = "file://public/media/services/service-maintenance.png"
 type = "image"
 title = "mechanic maintaining heavy equipment"
+
+[[generated]]
+id = "uSnodAmBfGPhVTJBu0_rO"
+uri = "file://public/media/brands/cat-logo.png"
+type = "image"
+title = "CAT Caterpillar logo"
+
+[[generated]]
+id = "BGrprGA1B_XvQ4JJskQ6R"
+uri = "file://public/media/brands/sany-logo.png"
+type = "image"
+title = "SANY logo"
+
+[[generated]]
+id = "m-tjQAjt8qdI9x8baYntc"
+uri = "file://public/media/brands/shantui-logo.png"
+type = "image"
+title = "Shantui logo"
+
+[[generated]]
+id = "wByDie0rPD_XKuMcOnON3"
+uri = "file://public/media/brands/sem-logo.png"
+type = "image"
+title = "SEM logo"
