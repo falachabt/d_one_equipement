@@ -22,6 +22,7 @@ const partners = [
     description:
       "Collaboration sur des besoins de manutention et de logistique lourde. Un ancrage local concret dans l'environnement camerounais.",
     location: "Douala",
+    website: "https://www.saptrans.net",
   },
 ];
 
@@ -107,9 +108,21 @@ export default function ReferencesPage() {
                   <p className="text-sm text-[var(--muted)] leading-relaxed">
                     {partner.description}
                   </p>
-                  <div className="flex items-center gap-2 text-[var(--muted)] mt-auto pt-2">
-                    <MapPin className="h-3.5 w-3.5 shrink-0" strokeWidth={1.8} />
-                    <span className="text-xs font-bold uppercase tracking-[0.1em]">{partner.location}</span>
+                  <div className="flex items-center justify-between mt-auto pt-2 gap-4">
+                    <div className="flex items-center gap-2 text-[var(--muted)]">
+                      <MapPin className="h-3.5 w-3.5 shrink-0" strokeWidth={1.8} />
+                      <span className="text-xs font-bold uppercase tracking-[0.1em]">{partner.location}</span>
+                    </div>
+                    {partner.website && (
+                      <a
+                        href={partner.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--gold)] hover:underline flex items-center gap-1"
+                      >
+                        Site web <ArrowRight className="h-3 w-3" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </StaggerItem>

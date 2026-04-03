@@ -59,7 +59,7 @@ export type ArticleItem = {
 };
 
 const fallbackPhone =
-  process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+49 1573 8304306";
+  process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+49 176 75938034";
 const fallbackEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@donequipment.com";
 const whatsappSource = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? fallbackPhone;
@@ -67,22 +67,23 @@ const whatsappDigits = whatsappSource.replace(/\D/g, "");
 
 export const company = {
   name: "D-ONE EQUIPMENT",
-  slogan: "Neuf. Expérimenté. Fiable.",
-  altSlogan: "New. Experienced. Reliable.",
-  // TODO: Slogan alternatif pour plus tard → "La puissance, là où vous en avez besoin."
+  slogan: "Propulsez vos projets.",
+  altSlogan: "Powering your project.",
   description:
     "Location d'engins lourds au Cameroun. Chargeuses et pelles pour chantiers BTP, industrie et logistique.",
   longDescription:
-    "D-ONE EQUIPMENT met a disposition des engins adaptes aux besoins de chargement, manutention, terrassement et exploitation de plateforme.",
+    "D-ONE EQUIPMENT SARL met à disposition des engins adaptés aux besoins de chargement, manutention, terrassement et exploitation de plateforme sur tout le territoire camerounais.",
   phone: fallbackPhone,
   email: fallbackEmail,
+  address: "Station Bocom Yassa, Douala, Cameroun",
+  hours: "Lun – Ven : 7h30 – 18h00 · Sam : 8h00 – 13h00",
   whatsappUrl:
     whatsappDigits.length >= 8
       ? `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(
           "Bonjour D-ONE EQUIPMENT, je souhaite demander un devis pour un engin.",
         )}`
       : null,
-  areas: ["Tout le Cameroun"],
+  areas: ["Partout au Cameroun"],
   socialLinks: {
     facebook: "https://www.facebook.com/share/1C77kCq4Tf/",
     instagram: "https://www.instagram.com/donequipment",
@@ -110,7 +111,7 @@ export const homeStats: StatItem[] = [
   { value: "5 t", label: "Charge nominale" },
   { value: "162 kW", label: "Puissance machine phare" },
   { value: "3 m3", label: "Capacite du godet" },
-  { value: "3 villes", label: "Tout le Cameroun" },
+  { value: "24h", label: "Réponse devis" },
 ];
 
 export const services: ServiceItem[] = [
@@ -203,19 +204,17 @@ export const fleet: FleetItem[] = [
         title: "Video machine Shantui L55-C5",
         file: "/media/videos/shantui-l55-c5-wheel-loader.mp4",
         poster: "/media/shantui-l55-c5.png",
-        sourceLabel: "Pexels",
+        sourceLabel: "Officiel",
         sourceUrl: "",
       },
       {
-        title: "Video machine L55-B5 en preparation",
-        file: "/media/videos/shantui-l55-b5-ready-for-shipping.mp4",
+        title: "Shantui L55-B5 — Démonstration terrain",
+        file: "/media/videos/shantui-l55-b5-youtube.mp4",
         poster: "/media/shantui-gallery-1.jpg",
-        sourceLabel: "Pexels",
-        sourceUrl: "",
+        sourceLabel: "YouTube",
+        sourceUrl: "https://www.youtube.com/watch?v=53LzYfyR02c",
       },
     ],
-    // Add a YouTube video ID here to show a machine demo video on the detail page.
-    // Example: videoYoutubeId: "XXXXXXXXXXX"
     videoYoutubeId: undefined,
   },
   {

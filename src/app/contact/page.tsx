@@ -39,7 +39,7 @@ const contactItems = [
   {
     icon: MapPin,
     label: "Zone d'intervention",
-    value: "Tout le Cameroun",
+    value: "Partout au Cameroun",
     href: "/references",
   },
 ];

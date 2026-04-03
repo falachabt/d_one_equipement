@@ -87,25 +87,25 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
       </section>
 
       {/* ─── VIDEO ────────────────────────────────────────────────── */}
-      {item.videos?.length ? (
+      {(item.videos?.length || item.videoYoutubeId) ? (
         <section className="border-b border-[var(--line)] bg-[var(--surface)]">
           <AnimateIn className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-8 flex items-center gap-3">
               <div className="flex h-9 w-9 items-center justify-center bg-[var(--surface-ink)]">
                 <Play className="h-4 w-4 text-white" fill="white" strokeWidth={0} />
               </div>
               <div>
-                <p className="data-label">Videos machine</p>
+                <p className="data-label">Vidéos machine</p>
                 <p className="text-sm text-[var(--muted)]">
-                  {item.name} en presentation et en demonstration
+                  {item.name} — présentation et démonstration terrain
                 </p>
               </div>
             </div>
 
             <div className="grid gap-6 lg:grid-cols-2">
-              {item.videos.map((video) => (
-                <article key={video.file} className="overflow-hidden border border-[var(--line)] bg-white">
-                  <div className="border-b border-[var(--line)] bg-black">
+              {item.videos?.map((video) => (
+                <article key={video.file} className="overflow-hidden border border-[var(--line)] bg-[var(--background)]">
+                  <div className="relative border-b border-[var(--line)] bg-black group">
                     <video
                       controls
                       preload="metadata"
@@ -114,43 +114,51 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
                       playsInline
                     >
                       <source src={video.file} type="video/mp4" />
-                      Votre navigateur ne peut pas lire cette video.
                     </video>
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
+                        <Play className="h-7 w-7 text-white" fill="white" strokeWidth={0} />
+                      </div>
+                    </div>
                   </div>
-                  <div className="space-y-3 p-5">
-                    <h2 className="font-display text-2xl font-semibold text-[var(--foreground)]">
+                  <div className="space-y-2 p-5">
+                    <h2 className="font-display text-xl font-bold uppercase tracking-[0.04em] text-[var(--foreground)]">
                       {video.title}
                     </h2>
-                    <p className="text-sm leading-7 text-[var(--muted)]">
-                      Apercu video de la machine sur chantier et en demonstration.
+                    <p className="text-sm text-[var(--muted)]">
+                      Présentation officielle de la machine.
                     </p>
                   </div>
                 </article>
               ))}
-            </div>
-          </AnimateIn>
-        </section>
-      ) : item.videoYoutubeId ? (
-        <section className="border-b border-[var(--line)] bg-[var(--surface)]">
-          <AnimateIn className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center bg-[var(--surface-ink)]">
-                <Play className="h-4 w-4 text-white" fill="white" strokeWidth={0} />
-              </div>
-              <div>
-                <p className="data-label">Vidéo machine</p>
-                <p className="text-sm text-[var(--muted)]">{item.name} — démonstration terrain</p>
-              </div>
-            </div>
-            <div className="relative aspect-video overflow-hidden border border-[var(--line)] bg-[#0a0a0a]">
-              <iframe
-                src={`https://www.youtube.com/embed/${item.videoYoutubeId}?rel=0&modestbranding=1`}
-                title={`Vidéo de présentation ${item.name}`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full border-0"
-                loading="lazy"
-              />
+
+              {item.videoYoutubeId && (
+                <article className="overflow-hidden border border-[var(--line)] bg-[var(--background)]">
+                  <div className="relative aspect-video border-b border-[var(--line)] bg-[#0a0a0a]">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${item.videoYoutubeId}?rel=0&modestbranding=1`}
+                      title={`Vidéo de présentation ${item.name}`}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full border-0"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="space-y-2 p-5">
+                    <div className="flex items-center gap-2">
+                      <svg viewBox="0 0 24 24" className="h-4 w-4 text-red-500" fill="currentColor" aria-hidden="true">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                      </svg>
+                      <h2 className="font-display text-xl font-bold uppercase tracking-[0.04em] text-[var(--foreground)]">
+                        Démonstration officielle
+                      </h2>
+                    </div>
+                    <p className="text-sm text-[var(--muted)]">
+                      Vidéo terrain — {item.name} en conditions réelles.
+                    </p>
+                  </div>
+                </article>
+              )}
             </div>
           </AnimateIn>
         </section>

@@ -82,7 +82,7 @@ export default function Home() {
       {/* ========== HERO ========== */}
       <HeroAnimated
         slogan={company.slogan}
-        subtitle="Location d'engins lourds · Tout le Cameroun"
+        subtitle="Location d'engins lourds · Partout au Cameroun"
         primaryCta={{ label: "Demander un devis", href: "/contact#devis" }}
         secondaryCta={{ label: "Voir nos engins", href: "/flotte" }}
         whatsappUrl={company.whatsappUrl ?? null}
@@ -118,6 +118,108 @@ export default function Home() {
             );
           })}
         </StaggerChildren>
+      </section>
+
+      {/* ========== QUI SOMMES-NOUS ========== */}
+      <section className="section-spacing">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+            <AnimateIn>
+              <p className="eyebrow">Qui sommes-nous ?</p>
+              <h2 className="mt-4 section-title">
+                D-ONE EQUIPMENT SARL.<br />
+                <span className="text-[var(--gold)]">Basés à Douala.</span>
+              </h2>
+              <p className="mt-5 lead-copy">
+                Société spécialisée dans la location d&apos;engins lourds, implantée à la station Bocom Yassa, Douala. Nous mettons à disposition des chargeuses et pelles adaptées aux chantiers BTP, aux sites industriels et aux plateformes logistiques.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Machines neuves, entretenues et prêtes à l'emploi",
+                  "Avec ou sans chauffeur qualifié",
+                  "Intervention partout au Cameroun",
+                  "Réponse devis sous 24h — WhatsApp disponible",
+                ].map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-sm text-[var(--muted)]">
+                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="/a-propos" className="btn-secondary">
+                  En savoir plus <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/contact#devis" className="btn-primary">
+                  Nous contacter
+                </Link>
+              </div>
+            </AnimateIn>
+
+            <AnimateIn delay={0.12} direction="left">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image
+                    src="/media/shantui-l55-c5.png"
+                    alt="Chargeuse Shantui L55 D-ONE EQUIPMENT"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image
+                      src="/media/shantui-case-1.jpg"
+                      alt="Chantier D-ONE EQUIPMENT Cameroun"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="relative aspect-square overflow-hidden">
+                    <Image
+                      src="/media/services/service-chauffeur.png"
+                      alt="Opérateur qualifié D-ONE EQUIPMENT"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  </div>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== MARQUES — CAT, SEM, SHANTUI, SANY ========== */}
+      <section className="border-y border-[var(--line)] bg-[var(--surface)] py-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--muted)] mb-8">
+            Marques que nous proposons
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[var(--line)]">
+            {[
+              { name: "Caterpillar", abbr: "CAT", origin: "États-Unis" },
+              { name: "SEM", abbr: "SEM", origin: "Chine / CAT" },
+              { name: "Shantui", abbr: "SHANTUI", origin: "Chine" },
+              { name: "SANY", abbr: "SANY", origin: "Chine" },
+            ].map((brand) => (
+              <div
+                key={brand.abbr}
+                className="bg-[var(--surface)] py-8 px-6 flex flex-col items-center justify-center gap-2 hover:bg-[var(--background)] transition"
+              >
+                <span className="font-display text-2xl font-bold uppercase tracking-[0.1em] text-[var(--foreground)]">
+                  {brand.abbr}
+                </span>
+                <span className="text-xs text-[var(--muted)] uppercase tracking-[0.1em]">
+                  {brand.origin}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ========== COMMENT ÇA MARCHE ========== */}

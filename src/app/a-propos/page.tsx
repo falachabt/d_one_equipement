@@ -37,8 +37,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="À propos"
-        title="Neuf. Expérimenté. Fiable."
-        description="D-ONE EQUIPMENT structure une offre de location d'engins lourds pour les chantiers BTP, industriels et portuaires au Cameroun."
+        title="Propulsez vos projets."
+        description="D-ONE EQUIPMENT SARL — location d'engins lourds pour chantiers BTP, sites industriels et portuaires partout au Cameroun."
         image="/media/shantui-gallery-1.jpg"
       />
 

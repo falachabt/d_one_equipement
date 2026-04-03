@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MapPin, Clock, Phone, Mail } from "lucide-react";
 
 import { company, navItems } from "@/data/site";
 import { SocialLinks } from "@/components/social-links";
@@ -15,14 +16,18 @@ export function SiteFooter() {
   return (
     <footer className="bg-[#070b08] border-t border-[var(--line-on-dark)]">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-3">
+        <div className="grid gap-10 lg:grid-cols-4">
+
           {/* Brand */}
-          <div>
+          <div className="lg:col-span-1">
             <p className="font-display text-2xl font-bold text-white tracking-[0.1em] uppercase">
               D-ONE <span className="text-[var(--gold)]">Equipment</span>
             </p>
-            <p className="mt-3 text-sm text-white/40">
-              {company.slogan}
+            <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--gold)]/70">
+              SARL · Douala, Cameroun
+            </p>
+            <p className="mt-3 text-sm text-white/40 italic">
+              &ldquo;{company.altSlogan}&rdquo;
             </p>
             <SocialLinks variant="dark" className="mt-5" />
           </div>
@@ -50,19 +55,32 @@ export function SiteFooter() {
             <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--gold)] mb-4">
               Contact
             </p>
-            <div className="space-y-2">
-              <p className="text-sm text-white/55">{company.email}</p>
-              <p className="text-sm text-white/55">{company.phone}</p>
-              <p className="text-xs text-white/30 mt-3 uppercase tracking-[0.08em]">
-                {company.areas.join(" · ")}
-              </p>
+            <div className="space-y-3">
+              <a
+                href={`tel:${company.phone.replace(/\s/g, "")}`}
+                className="flex items-center gap-2.5 text-sm text-white/55 hover:text-white transition"
+              >
+                <Phone className="h-3.5 w-3.5 shrink-0 text-[var(--gold)]" strokeWidth={1.8} />
+                {company.phone}
+              </a>
+              <a
+                href={`mailto:${company.email}`}
+                className="flex items-center gap-2.5 text-sm text-white/55 hover:text-white transition"
+              >
+                <Mail className="h-3.5 w-3.5 shrink-0 text-[var(--gold)]" strokeWidth={1.8} />
+                {company.email}
+              </a>
+              <div className="flex items-start gap-2.5 text-sm text-white/55">
+                <MapPin className="h-3.5 w-3.5 shrink-0 text-[var(--gold)] mt-0.5" strokeWidth={1.8} />
+                <span>{company.address}</span>
+              </div>
             </div>
             {company.whatsappUrl && (
               <Link
                 href={company.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 inline-flex items-center gap-2 bg-[#25D366] px-4 py-2 text-white transition hover:bg-[#20bd5a]"
+                className="mt-5 inline-flex items-center gap-2 bg-[#25D366] px-4 py-2 text-white transition hover:bg-[#20bd5a]"
                 aria-label="Contacter via WhatsApp"
               >
                 <WhatsAppIcon />
@@ -72,12 +90,40 @@ export function SiteFooter() {
               </Link>
             )}
           </div>
+
+          {/* Horaires */}
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--gold)] mb-4">
+              Horaires
+            </p>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2.5">
+                <Clock className="h-3.5 w-3.5 shrink-0 text-[var(--gold)] mt-0.5" strokeWidth={1.8} />
+                <div className="text-sm text-white/55 space-y-1">
+                  <p>Lun – Ven : 7h30 – 18h00</p>
+                  <p>Samedi : 8h00 – 13h00</p>
+                  <p className="text-white/30 text-xs">Dimanche : Fermé</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 border border-[var(--gold)]/20 p-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold)]/70 mb-1">
+                Urgence chantier
+              </p>
+              <p className="text-xs text-white/40">
+                Disponible via WhatsApp en dehors des heures d&apos;ouverture.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 border-t border-[var(--line-on-dark)] pt-8 text-center">
+        <div className="mt-12 border-t border-[var(--line-on-dark)] pt-8 flex flex-wrap items-center justify-between gap-4">
           <p className="text-xs text-white/25 tracking-[0.1em] uppercase">
-            © 2026 D-ONE EQUIPMENT · Cameroun
+            © 2026 D-ONE EQUIPMENT SARL · Bocom Yassa, Douala · Cameroun
+          </p>
+          <p className="text-xs text-white/20 tracking-[0.08em] uppercase">
+            Partout au Cameroun
           </p>
         </div>
       </div>
