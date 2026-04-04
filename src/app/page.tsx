@@ -11,8 +11,6 @@ import {
   MessageCircle,
   ClipboardList,
   CheckCircle2,
-  MapPin,
-  Clock,
 } from "lucide-react";
 
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
@@ -149,16 +147,22 @@ export default function Home() {
       </section>
 
       {/* ========== MARQUES — logos officiels ========== */}
-      <section className="bg-white border-b border-[var(--line)] py-12">
+      <section className="bg-white border-b border-[var(--line)] py-14">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--muted)] mb-10">
-            Marques que nous opérons
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <AnimateIn className="text-center mb-12">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--muted)] mb-3">
+              Marques que nous opérons
+            </p>
+            <p className="text-base text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
+              Nous travaillons exclusivement avec des marques mondiales de premier rang :{" "}
+              <strong className="text-[var(--foreground)]">Caterpillar, SEM, Shantui et SANY.</strong>
+            </p>
+          </AnimateIn>
+          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center" staggerDelay={0.08}>
             {brands.map((brand) => (
-              <AnimateIn key={brand.abbr} direction="up" delay={0.05}>
+              <StaggerItem key={brand.abbr}>
                 <div className="flex flex-col items-center gap-3 group">
-                  <div className="relative w-full h-16 grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100">
+                  <div className="relative w-full h-14 transition-transform duration-300 hover:scale-105">
                     <Image
                       src={brand.logo}
                       alt={`Logo ${brand.name}`}
@@ -171,9 +175,9 @@ export default function Home() {
                     {brand.origin}
                   </span>
                 </div>
-              </AnimateIn>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
@@ -267,82 +271,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== QUI SOMMES-NOUS — section immersive ========== */}
-      <section className="section-dark overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-0 lg:gap-16 items-stretch">
+      {/* ========== QUI SOMMES-NOUS ========== */}
+      <section className="bg-white overflow-hidden">
+        <div className="grid lg:grid-cols-2 min-h-[560px]">
 
-            {/* Image — pleine hauteur à droite sur desktop, en haut sur mobile */}
-            <AnimateIn direction="left" delay={0.1} className="order-first lg:order-last">
-              <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-full min-h-[320px] overflow-hidden">
-                <Image
-                  src="/media/shantui-case-1.jpg"
-                  alt="Chantier D-ONE EQUIPMENT au Cameroun"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,15,11,0.4)] via-transparent to-transparent lg:hidden" />
+          {/* Photo — pleine hauteur sur desktop */}
+          <AnimateIn direction="right" delay={0.1} className="relative min-h-[300px] lg:min-h-0">
+            <Image
+              src="/media/services/service-chauffeur.png"
+              alt="Opérateur D-ONE EQUIPMENT en cabine"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+            {/* Bande or sur le bord droit (visible desktop) */}
+            <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1 bg-[var(--gold)]" />
+            {/* Dégradé bas sur mobile */}
+            <div className="lg:hidden absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
+          </AnimateIn>
 
-                {/* Badge flottant */}
-                <div className="absolute bottom-4 left-4 right-4 lg:bottom-6 lg:left-6 lg:right-auto bg-[rgba(10,15,11,0.85)] border border-[var(--gold)]/20 backdrop-blur-sm px-4 py-3 flex items-center gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center bg-[var(--gold)]/10 border border-[var(--gold)]/30">
-                    <MapPin className="h-4 w-4 text-[var(--gold)]" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--gold)]">Siège social</p>
-                    <p className="text-xs text-white/70">Station Bocom Yassa, Douala</p>
-                  </div>
+          {/* Contenu */}
+          <AnimateIn className="flex flex-col justify-center px-8 py-14 lg:px-14 lg:py-20 bg-white">
+            <p className="eyebrow">Qui sommes-nous ?</p>
+
+            <h2 className="mt-4 font-display text-[clamp(2rem,3.5vw,3rem)] font-bold leading-[0.92] uppercase tracking-[0.02em] text-[var(--foreground)]">
+              D-ONE EQUIPMENT SARL.<br />
+              <span className="text-[var(--gold)]">Votre partenaire terrain.</span>
+            </h2>
+
+            <p className="mt-5 text-[var(--muted)] leading-relaxed max-w-sm">
+              Implantés à la station Bocom Yassa, Douala, nous fournissons des chargeuses et pelles aux chantiers BTP, sites industriels et plateformes logistiques — partout au Cameroun.
+            </p>
+
+            {/* Stats clés */}
+            <div className="mt-8 grid grid-cols-3 gap-px bg-[var(--line)]">
+              {[
+                { val: "100%", lbl: "Flotte neuve" },
+                { val: "< 24h", lbl: "Réponse devis" },
+                { val: "∞", lbl: "Au Cameroun" },
+              ].map((s) => (
+                <div key={s.lbl} className="bg-white py-5 px-2 text-center">
+                  <p className="font-display text-2xl font-bold text-[var(--gold)]">{s.val}</p>
+                  <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--muted)]">{s.lbl}</p>
                 </div>
-              </div>
-            </AnimateIn>
+              ))}
+            </div>
 
-            {/* Texte */}
-            <AnimateIn className="py-14 lg:py-20 order-last lg:order-first flex flex-col justify-center">
-              <p className="eyebrow text-[var(--gold)]">Qui sommes-nous ?</p>
-              <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3.2rem)] font-bold leading-[0.95] uppercase tracking-[0.02em] text-white">
-                D-ONE EQUIPMENT SARL.
-                <br />
-                <span className="text-[var(--gold)]">Basés à Douala.</span>
-              </h2>
-              <p className="mt-6 text-base text-white/60 leading-relaxed max-w-prose">
-                Société spécialisée dans la location d&apos;engins lourds, nous mettons à disposition des chargeuses et pelles adaptées aux chantiers BTP, sites industriels et plateformes logistiques — partout au Cameroun.
-              </p>
+            {/* Points forts */}
+            <ul className="mt-7 space-y-2.5">
+              {[
+                "Machines entretenues, prêtes à l'emploi immédiat",
+                "Chauffeurs qualifiés inclus sur demande",
+                "Support technique pendant toute la location",
+              ].map((point) => (
+                <li key={point} className="flex items-start gap-3 text-sm text-[var(--muted)]">
+                  <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
+                  {point}
+                </li>
+              ))}
+            </ul>
 
-              <ul className="mt-8 space-y-4">
-                {[
-                  "Machines neuves, entretenues et prêtes à l'emploi",
-                  "Opérateurs qualifiés inclus sur demande",
-                  "Intervention partout au Cameroun",
-                  "Devis sous 24h — WhatsApp disponible",
-                ].map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-sm text-white/60">
-                    <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--gold)]" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Horaires */}
-              <div className="mt-8 flex items-start gap-3 border-t border-white/10 pt-6">
-                <Clock className="h-4 w-4 shrink-0 text-[var(--gold)] mt-0.5" strokeWidth={1.5} />
-                <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-[var(--gold)] mb-1">Horaires</p>
-                  <p className="text-xs text-white/50">Lun – Ven : 7h30 – 18h00</p>
-                  <p className="text-xs text-white/50">Sam : 8h00 – 13h00</p>
-                </div>
-              </div>
-
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link href="/a-propos" className="btn-secondary">
-                  Notre histoire <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link href="/contact#devis" className="btn-primary">
-                  Nous contacter
-                </Link>
-              </div>
-            </AnimateIn>
-          </div>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link href="/a-propos" className="btn-secondary">
+                Notre histoire <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/contact#devis" className="btn-primary">
+                Demander un devis
+              </Link>
+            </div>
+          </AnimateIn>
         </div>
       </section>
 

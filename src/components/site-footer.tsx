@@ -106,14 +106,6 @@ export function SiteFooter() {
                 </div>
               </div>
             </div>
-            <div className="mt-6 border border-[var(--gold)]/20 p-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold)]/70 mb-1">
-                Urgence chantier
-              </p>
-              <p className="text-xs text-white/40">
-                Disponible via WhatsApp en dehors des heures d&apos;ouverture.
-              </p>
-            </div>
           </div>
         </div>
 

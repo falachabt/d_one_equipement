@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, ExternalLink } from "lucide-react";
 
 import { PageHero } from "@/components/page-hero";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
@@ -15,17 +15,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/references",
 });
 
-const partners = [
-  {
-    name: "Saptrans",
-    type: "Partenaire logistique",
-    description:
-      "Collaboration sur des besoins de manutention et de logistique lourde. Un ancrage local concret dans l'environnement camerounais.",
-    location: "Douala",
-    website: "https://www.saptrans.net",
-  },
-];
-
 export default function ReferencesPage() {
   return (
     <>
@@ -36,6 +25,64 @@ export default function ReferencesPage() {
         image="/media/aerial-construction-site.png"
       />
 
+      {/* ── Partenaire mis en avant : SAPTRANS ─────────────────── */}
+      <section className="border-b border-[var(--line)] bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+          <AnimateIn>
+            <p className="eyebrow mb-8">Partenaire de confiance</p>
+          </AnimateIn>
+          <AnimateIn delay={0.08}>
+            <div className="grid lg:grid-cols-2 gap-0 overflow-hidden border border-[var(--line)] hover:border-[var(--gold)] transition-colors">
+              {/* Image contextuelle */}
+              <div className="relative aspect-[4/3] lg:aspect-auto bg-[var(--surface)] overflow-hidden">
+                <Image
+                  src="/media/shantui-case-1.jpg"
+                  alt="Chantier logistique Saptrans D-ONE EQUIPMENT"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,15,11,0.5)] to-transparent" />
+              </div>
+
+              {/* Info partenaire */}
+              <div className="flex flex-col justify-center p-8 lg:p-12 bg-white">
+                {/* Logo Saptrans */}
+                <div className="relative h-12 w-48 mb-6">
+                  <Image
+                    src="/media/brands/saptrans-logo.png"
+                    alt="Logo Saptrans"
+                    fill
+                    className="object-contain object-left"
+                    sizes="192px"
+                  />
+                </div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--gold)] mb-3">
+                  Partenaire logistique · Douala
+                </span>
+                <h3 className="font-display text-2xl font-bold uppercase tracking-[0.04em] text-[var(--foreground)]">
+                  Saptrans
+                </h3>
+                <p className="mt-4 text-sm text-[var(--muted)] leading-relaxed max-w-sm">
+                  Collaboration sur des besoins de manutention et de logistique lourde. Saptrans — <em>Votre Partenaire de Route</em> — opère au Cameroun et s&apos;appuie sur nos engins pour ses chantiers terrain.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-4 items-center">
+                  <a
+                    href="https://saptrans.net"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold)] hover:underline"
+                  >
+                    Visiter saptrans.net <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      {/* ── Projets & interventions ─────────────────────────────── */}
       <section className="section-spacing">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <AnimateIn>
@@ -76,53 +123,6 @@ export default function ReferencesPage() {
                     <p className="mt-2 text-sm text-[var(--muted)] leading-relaxed">
                       {ref.description}
                     </p>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      </section>
-
-      <section className="section-alt section-spacing">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <AnimateIn>
-            <p className="eyebrow">Partenaires</p>
-            <h2 className="mt-4 section-title max-w-xl">
-              Des collaborations de confiance.
-            </h2>
-          </AnimateIn>
-
-          <StaggerChildren className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
-            {partners.map((partner) => (
-              <StaggerItem key={partner.name}>
-                <div className="line-card flex flex-col gap-4">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold)]">
-                      {partner.type}
-                    </span>
-                    <h3 className="mt-1 font-display text-xl font-bold uppercase tracking-[0.06em]">
-                      {partner.name}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-[var(--muted)] leading-relaxed">
-                    {partner.description}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto pt-2 gap-4">
-                    <div className="flex items-center gap-2 text-[var(--muted)]">
-                      <MapPin className="h-3.5 w-3.5 shrink-0" strokeWidth={1.8} />
-                      <span className="text-xs font-bold uppercase tracking-[0.1em]">{partner.location}</span>
-                    </div>
-                    {partner.website && (
-                      <a
-                        href={partner.website}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--gold)] hover:underline flex items-center gap-1"
-                      >
-                        Site web <ArrowRight className="h-3 w-3" />
-                      </a>
-                    )}
                   </div>
                 </div>
               </StaggerItem>
