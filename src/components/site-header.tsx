@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-import { company, navItems } from "@/data/site";
+import { BrandLogo } from "@/components/brand-logo";
+import { navItems } from "@/data/site";
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -36,22 +36,11 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-6 py-3 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/logo-d-one.svg"
-            alt={`${company.name} logo`}
-            width={36}
-            height={36}
-            priority
-          />
-          <div>
-            <div className="font-display text-lg font-bold tracking-[0.14em] text-white uppercase">
-              D-ONE
-            </div>
-            <div className="text-[10px] uppercase tracking-[0.22em] text-white/50">
-              Equipment
-            </div>
-          </div>
+        <Link
+          href="/"
+          className="flex items-center"
+        >
+          <BrandLogo priority imageClassName="h-9 w-auto sm:h-10" />
         </Link>
 
         {/* Desktop nav */}

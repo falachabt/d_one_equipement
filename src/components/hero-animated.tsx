@@ -53,19 +53,8 @@ export function HeroAnimated({ slogan, subtitle, primaryCta, secondaryCta, whats
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(10,15,11,0.15)] via-[rgba(10,15,11,0.4)] to-[rgba(10,15,11,0.97)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 lg:px-8 lg:pb-28">
-        <p
-          className="eyebrow !text-[var(--gold)] hero-item"
-          style={{
-            opacity: ready ? 1 : 0,
-            transform: ready ? "translateY(0)" : "translateY(20px)",
-            transition: "opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s",
-          }}
-        >
-          D-ONE EQUIPMENT
-        </p>
-
         <h1
-          className="mt-4 max-w-4xl font-display text-[clamp(3.5rem,8vw,7.5rem)] font-bold leading-[0.9] tracking-[0.02em] text-white uppercase"
+          className="max-w-4xl font-display text-[clamp(3.5rem,8vw,7.5rem)] font-bold leading-[0.9] tracking-[0.02em] text-white uppercase"
           style={{
             opacity: ready ? 1 : 0,
             transform: ready ? "translateY(0)" : "translateY(32px)",

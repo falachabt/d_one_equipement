@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandLogo } from "@/components/brand-logo";
 import { company, navItems } from "@/data/site";
 import { SocialLinks } from "@/components/social-links";
 
@@ -18,9 +19,12 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-3">
           {/* Brand */}
           <div>
-            <p className="font-display text-2xl font-bold text-white tracking-[0.1em] uppercase">
-              D-ONE <span className="text-[var(--gold)]">Equipment</span>
-            </p>
+            <Link href="/" className="inline-flex items-center">
+              <BrandLogo
+                className="px-3 py-2"
+                imageClassName="h-10 w-auto sm:h-11"
+              />
+            </Link>
             <p className="mt-3 text-sm text-white/40">
               {company.slogan}
             </p>
