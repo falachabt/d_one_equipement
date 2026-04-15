@@ -1,0 +1,55 @@
+
+
+import Link from "next/link";
+                aria-label="Contacter via WhatsApp"
+              >
+                <WhatsAppIcon />
+                <span className="text-xs font-bold uppercase tracking-[0.1em]">
+                  WhatsApp
+                </span>
+              </Link>
+            )}
+          </div>
+
+          {/* Horaires */}
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--gold)] mb-4">
+              Horaires
+            </p>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2.5">
+                <Clock className="h-3.5 w-3.5 shrink-0 text-[var(--gold)] mt-0.5" strokeWidth={1.8} />
+                <div className="text-sm text-white/55 space-y-1">
+                  <p>Lun – Ven : 7h30 – 18h00</p>
+                  <p>Samedi : 8h00 – 13h00</p>
+                  <p className="text-white/30 text-xs">Dimanche : Fermé</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 border border-[var(--gold)]/20 p-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--gold)]/70 mb-1">
+                Urgence chantier
+              </p>
+              <p className="text-xs text-white/40">
+                Disponible via WhatsApp en dehors des heures d&apos;ouverture.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-12 border-t border-[var(--line-on-dark)] pt-8 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-xs text-white/25 tracking-[0.1em] uppercase">
+            © 2026 D-ONE EQUIPMENT SARL · Bocom Yassa, Douala · Cameroun
+          </p>
+          <p className="text-xs text-white/20 tracking-[0.08em] uppercase">
+            Partout au Cameroun
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+Unsupported state: you are in the middle of a rebase.
+Please finish the rebase manually.
