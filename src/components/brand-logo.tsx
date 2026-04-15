@@ -20,7 +20,7 @@ export function BrandLogo({
   return (
     <div className={`inline-flex items-center rounded-sm bg-white px-3 py-2 shadow-sm ${className}`.trim()}>
       <Image
-        src="/assets/logos/logo-wordmark.png"
+        src="/assets/logos/logo.jpeg"
         alt={`${company.name} logo`}
         width={width}
         height={height}
