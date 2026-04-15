@@ -25,6 +25,7 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/",
 });
 
+
 const services = [
   {
     icon: Truck,
