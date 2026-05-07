@@ -5,6 +5,7 @@ import { Play } from "lucide-react";
 
 import { EquipmentGallery } from "@/components/equipment-gallery";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
+import { FleetItemTracker, SpecDownloadButton } from "@/components/fleet-item-tracker";
 import { getFleetBySlug, fleet } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -43,6 +44,7 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
 
   return (
     <>
+      <FleetItemTracker name={item.name} equipmentType={item.type} brand={item.brand} />
       {/* ─── HERO ─────────────────────────────────────────────────── */}
       <section className="border-b border-[var(--line)] bg-[var(--background)]">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-18 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-20">
@@ -60,9 +62,7 @@ export default async function FleetDetailPage({ params }: FleetDetailPageProps) 
                 Demander un devis
               </Link>
               {item.download ? (
-                <Link href={item.download} className="btn-secondary text-[var(--foreground)]" target="_blank">
-                  Télécharger la fiche PDF
-                </Link>
+                <SpecDownloadButton href={item.download} name={item.name} />
               ) : null}
             </div>
 

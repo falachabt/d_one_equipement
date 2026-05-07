@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
+import posthog from "posthog-js";
 
 type QuoteState = {
   status: "idle" | "success" | "error";
@@ -35,12 +36,22 @@ export function QuoteForm() {
     event.preventDefault();
     setFeedback({ status: "idle", message: "" });
 
+    posthog.capture("quote_form_submitted", {
+      equipment_type: values.equipmentType,
+      rental_duration: values.rentalDuration,
+      site_location: values.siteLocation,
+      has_company: values.company.trim().length > 0,
+      has_message: values.message.trim().length > 0,
+    });
+
     startTransition(async () => {
       try {
         const response = await fetch("/api/quote", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "X-POSTHOG-DISTINCT-ID": posthog.get_distinct_id(),
+            "X-POSTHOG-SESSION-ID": posthog.get_session_id() ?? "",
           },
           body: JSON.stringify(values),
         });
@@ -48,6 +59,12 @@ export function QuoteForm() {
         const payload = (await response.json()) as { message: string };
 
         if (!response.ok) {
+          posthog.capture("quote_form_failed", {
+            equipment_type: values.equipmentType,
+            site_location: values.siteLocation,
+            error_message: payload.message,
+            status_code: response.status,
+          });
           setFeedback({
             status: "error",
             message: payload.message || "Impossible d'envoyer la demande.",
@@ -55,12 +72,24 @@ export function QuoteForm() {
           return;
         }
 
+        posthog.capture("quote_form_succeeded", {
+          equipment_type: values.equipmentType,
+          rental_duration: values.rentalDuration,
+          site_location: values.siteLocation,
+        });
+
         setValues(initialValues);
         setFeedback({
           status: "success",
           message: payload.message,
         });
-      } catch {
+      } catch (err) {
+        posthog.captureException(err);
+        posthog.capture("quote_form_failed", {
+          equipment_type: values.equipmentType,
+          site_location: values.siteLocation,
+          error_message: "network_error",
+        });
         setFeedback({
           status: "error",
           message:

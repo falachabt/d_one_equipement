@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Rajdhani, Source_Sans_3 } from "next/font/google";
 import Script from "next/script";
 
@@ -82,6 +83,7 @@ export default function RootLayout({
           <SiteFooter />
         </div>
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );

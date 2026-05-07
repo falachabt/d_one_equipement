@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import posthog from "posthog-js";
 
 import { company } from "@/data/site";
 
@@ -14,6 +17,7 @@ export function WhatsAppButton() {
       rel="noreferrer"
       className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-2.5 rounded-full border border-emerald-900/15 bg-[#25D366] p-3 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(37,211,102,0.32)] transition hover:-translate-y-0.5 hover:bg-[#22c55e] hover:shadow-[0_12px_32px_rgba(37,211,102,0.42)] md:bottom-5 md:right-5 md:rounded-none md:px-4 md:py-3"
       aria-label="Contacter D-ONE EQUIPMENT sur WhatsApp"
+      onClick={() => posthog.capture("whatsapp_clicked", { source: "floating_button" })}
     >
       <svg
         viewBox="0 0 24 24"

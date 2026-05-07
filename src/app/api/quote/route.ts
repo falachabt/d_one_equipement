@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 type QuotePayload = {
   firstName?: string;
@@ -33,6 +34,9 @@ function formatField(label: string, value?: string): string {
 
 export async function POST(request: Request) {
   const body = (await request.json()) as QuotePayload;
+  const distinctId =
+    request.headers.get("X-POSTHOG-DISTINCT-ID") ?? body.email ?? "anonymous";
+  const sessionId = request.headers.get("X-POSTHOG-SESSION-ID") ?? undefined;
 
   if (
     isEmpty(body.firstName) ||
@@ -50,6 +54,20 @@ export async function POST(request: Request) {
       { status: 400 }
     );
   }
+
+  const posthog = getPostHogClient();
+  posthog.capture({
+    distinctId,
+    event: "quote_received",
+    properties: {
+      equipment_type: body.equipmentType,
+      rental_duration: body.rentalDuration,
+      site_location: body.siteLocation,
+      has_company: !isEmpty(body.company),
+      has_message: !isEmpty(body.message),
+      ...(sessionId ? { $session_id: sessionId } : {}),
+    },
+  });
 
   const receivedAt = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
 
@@ -130,6 +148,16 @@ export async function POST(request: Request) {
       { status: 502 }
     );
   }
+
+  posthog.capture({
+    distinctId,
+    event: "quote_email_sent",
+    properties: {
+      equipment_type: body.equipmentType,
+      site_location: body.siteLocation,
+      ...(sessionId ? { $session_id: sessionId } : {}),
+    },
+  });
 
   console.info("[D-ONE EQUIPMENT] Quote email sent successfully for:", {
     name: `${body.firstName} ${body.lastName}`,
