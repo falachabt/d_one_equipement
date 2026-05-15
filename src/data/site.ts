@@ -59,7 +59,7 @@ export type ArticleItem = {
 };
 
 const fallbackPhone =
-  process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+49 176 75938034";
+  process.env.NEXT_PUBLIC_CONTACT_PHONE ?? "+49 15567 381084";
 const fallbackEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "contact@donequipment.com";
 const whatsappSource = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? fallbackPhone;
