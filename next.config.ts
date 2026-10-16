@@ -20,6 +20,23 @@ const nextConfig: NextConfig = {
   },
   // Required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
+  // Force the canonical domain: the default *.vercel.app host cannot be removed
+  // from a Vercel project, so every request on it is permanently redirected.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "d-one-equipement.vercel.app",
+          },
+        ],
+        permanent: true,
+        destination: "https://donequipment.com/:path*",
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
