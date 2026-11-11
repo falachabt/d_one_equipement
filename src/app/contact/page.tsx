@@ -7,7 +7,7 @@ import { ContactLinks } from "@/components/contact-links";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Contact et devis",
+  title: "Devis location d'engins au Cameroun",
   description:
     "Contactez D-ONE EQUIPMENT pour un devis rapide. WhatsApp, téléphone ou formulaire. Partout au Cameroun.",
   path: "/contact",
