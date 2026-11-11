@@ -9,7 +9,7 @@ import { references } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Références et partenaires",
+  title: "Chantiers et references au Cameroun",
   description:
     "Les projets et collaborations de D-ONE EQUIPMENT au Cameroun. Logistique, BTP, industrie portuaire.",
   path: "/references",
