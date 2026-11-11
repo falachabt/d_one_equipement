@@ -24,7 +24,7 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "D-ONE EQUIPMENT | Location d'engins lourds au Cameroun",
+    default: "Location d'engins lourds au Cameroun : chargeuses et pelles | D-ONE EQUIPMENT",
     template: "%s | D-ONE EQUIPMENT",
   },
   description: company.description,
@@ -51,6 +51,28 @@ const localBusinessSchema = {
   slogan: company.slogan,
   telephone: company.phone,
   email: company.email,
+  priceRange: "Sur devis",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Station Bocom Yassa",
+    addressLocality: "Douala",
+    addressCountry: "CM",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 4.0511, longitude: 9.7679 },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:30",
+      closes: "18:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "08:00",
+      closes: "13:00",
+    },
+  ],
   areaServed: company.areas,
   url: siteUrl,
   sameAs: [
