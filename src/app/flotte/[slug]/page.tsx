@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: FleetDetailPageProps): Promis
   if (!item) return {};
 
   return buildPageMetadata({
-    title: item.name,
+    title: `Location ${item.name} au Cameroun`,
     description: item.summary,
     path: `/flotte/${item.slug}`,
     keywords: [
