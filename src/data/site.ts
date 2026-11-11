@@ -70,7 +70,7 @@ export const company = {
   slogan: "Propulsez vos projets.",
   altSlogan: "Powering your project.",
   description:
-    "Location d'engins lourds au Cameroun. Chargeuses et pelles pour chantiers BTP, industrie et logistique.",
+    "Location d'engins lourds au Cameroun : chargeuses et pelles excavatrices pour chantiers BTP, mines, industrie et logistique. Interventions a Douala, Yaounde, Kribi et partout au Cameroun.",
   longDescription:
     "D-ONE EQUIPMENT SARL met à disposition des engins adaptés aux besoins de chargement, manutention, terrassement et exploitation de plateforme sur tout le territoire camerounais.",
   phone: fallbackPhone,
@@ -83,18 +83,23 @@ export const company = {
           "Bonjour D-ONE EQUIPMENT, je souhaite demander un devis pour un engin.",
         )}`
       : null,
-  areas: ["Partout au Cameroun"],
+  areas: ["Douala", "Yaounde", "Kribi", "Partout au Cameroun"],
   socialLinks: {
     facebook: "https://www.facebook.com/share/1C77kCq4Tf/",
     instagram: "https://www.instagram.com/donequipment",
     linkedin: "https://www.linkedin.com/company/d-one-equipment",
   },
   keywords: [
+    "location d'engins Cameroun",
     "location chargeuse Cameroun",
-    "location engins BTP Douala",
+    "location chargeuse Douala",
+    "location pelle Douala",
     "location pelle Yaounde",
-    "location chargeuse Kribi",
+    "location pelle excavatrice Cameroun",
+    "location engins BTP Douala",
     "location engins lourds Cameroun",
+    "location materiel minier Cameroun",
+    "location d'engins Kribi",
   ],
 };
 
