@@ -8,9 +8,9 @@ import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Nos services",
+  title: "Location de chargeuses et pelles au Cameroun",
   description:
-    "Location de chargeuses, pelles, avec chauffeur qualifié et support technique. Partout au Cameroun.",
+    "Location de chargeuses et de pelles excavatrices au Cameroun, avec chauffeur qualifie et support technique. BTP, mines, industrie et logistique : Douala, Yaounde, Kribi.",
   path: "/services",
 });
 
