@@ -16,7 +16,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-[#070b08] border-t border-[var(--line-on-dark)]">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
 
           {/* Brand */}
           <div className="lg:col-span-1">
@@ -89,6 +89,51 @@ export function SiteFooter() {
                 </span>
               </Link>
             )}
+          </div>
+
+          {/* Nos locations */}
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--gold)] mb-4">
+              Nos locations
+            </p>
+            <nav className="flex flex-col gap-2">
+              <Link
+                href="/location-pelle-douala"
+                className="text-sm text-white/55 hover:text-white transition uppercase tracking-[0.06em]"
+              >
+                Pelle à Douala
+              </Link>
+              <Link
+                href="/location-pelle-yaounde"
+                className="text-sm text-white/55 hover:text-white transition uppercase tracking-[0.06em]"
+              >
+                Pelle à Yaoundé
+              </Link>
+              <Link
+                href="/location-chargeuse-douala"
+                className="text-sm text-white/55 hover:text-white transition uppercase tracking-[0.06em]"
+              >
+                Chargeuse à Douala
+              </Link>
+              <Link
+                href="/location-engins-mines"
+                className="text-sm text-white/55 hover:text-white transition uppercase tracking-[0.06em]"
+              >
+                Mines & carrières
+              </Link>
+              <Link
+                href="/location-engins-kribi"
+                className="text-sm text-white/55 hover:text-white transition uppercase tracking-[0.06em]"
+              >
+                Engins à Kribi
+              </Link>
+              <Link
+                href="/conseils"
+                className="text-sm text-white/55 hover:text-white transition uppercase tracking-[0.06em]"
+              >
+                Conseils
+              </Link>
+            </nav>
           </div>
 
           {/* Horaires */}
