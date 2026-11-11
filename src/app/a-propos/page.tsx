@@ -8,7 +8,7 @@ import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "À propos",
+  title: "D-ONE EQUIPMENT, loueur d'engins au Cameroun",
   description:
     "D-ONE EQUIPMENT : location d'engins lourds au Cameroun. Pilotage depuis l'Allemagne, exécution terrain locale.",
   path: "/a-propos",
