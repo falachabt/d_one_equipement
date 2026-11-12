@@ -85,7 +85,7 @@ export const company = {
       : null,
   areas: ["Douala", "Yaounde", "Kribi", "Partout au Cameroun"],
   socialLinks: {
-    facebook: "https://www.facebook.com/share/1C77kCq4Tf/",
+    facebook: "https://www.facebook.com/people/D-One-Equipment/61578790185049/",
     instagram: "https://www.instagram.com/donequipment",
     linkedin: "https://www.linkedin.com/company/d-one-equipment",
   },
