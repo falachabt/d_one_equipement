@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Location d'engins lourds à Kribi",
   description:
-    "Location d'engins à Kribi : chargeuse 5 t et pelle 21,9 t pour le port en eau profonde, les plateformes industrielles et la logistique. Devis rapide via WhatsApp.",
+    "Location d'engins à Kribi : chargeuse 5 t et pelle Caterpillar 320GX pour le port en eau profonde, les plateformes industrielles et la logistique. Devis rapide via WhatsApp.",
   path: "/location-engins-kribi",
   keywords: [
     "location engins Kribi",
@@ -46,7 +46,7 @@ const besoins = [
 ];
 
 const inclus = [
-  "Chargeuse Shantui L55-C5 5 t et pelle SANY SY215C 21,9 t",
+  "Chargeuse Shantui L55-C5 5 t et pelle Caterpillar 320GX (classe 22 t)",
   "Avec chauffeur qualifié ou en location sèche",
   "Mobilisation sur Kribi et le département de l'Océan",
   "Suivi technique pendant toute la période de location",
@@ -81,7 +81,7 @@ export default function LocationEnginsKribiPage() {
               </p>
               <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">
                 Notre formule associe la chargeuse de 5 tonnes pour la manutention et le
-                chargement, et la pelle de 21,9 tonnes pour le terrassement et la
+                chargement, et la pelle Caterpillar 320GX pour le terrassement et la
                 préparation des plateformes : le duo qui couvre l'essentiel des travaux
                 d'un site portuaire ou industriel.
               </p>
@@ -137,7 +137,7 @@ export default function LocationEnginsKribiPage() {
               <h2 className="mt-4 section-title">Le duo chargeuse + pelle, mobilisé à Kribi.</h2>
               <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">
                 La Shantui L55-C5 charge les camions et entretient les stocks avec son
-                godet de 3 m³ ; la SANY SY215C ouvre les plateformes, creuse les
+                godet de 3 m³ ; la Caterpillar 320GX ouvre les plateformes, creuse les
                 tranchées et prépare les terrains. Louées ensemble ou séparément, avec
                 ou sans chauffeur, selon la phase de votre projet.
               </p>
@@ -145,8 +145,8 @@ export default function LocationEnginsKribiPage() {
                 <Link href="/flotte/shantui-l55-c5" className="btn-secondary">
                   La chargeuse 5 t <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/flotte/sany-sy215c" className="btn-secondary">
-                  La pelle 21,9 t <ArrowRight className="h-4 w-4" />
+                <Link href="/flotte/cat-320gx" className="btn-secondary">
+                  La pelle CAT 320GX <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </AnimateIn>

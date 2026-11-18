@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Location de pelle excavatrice à Yaoundé",
   description:
-    "Location de pelle excavatrice 21,9 t à Yaoundé : travaux publics, voirie, lotissements et chantiers institutionnels. Avec ou sans chauffeur, devis rapide via WhatsApp.",
+    "Location de pelle excavatrice Caterpillar 320GX (classe 22 t) à Yaoundé : travaux publics, voirie, lotissements et chantiers institutionnels. Avec ou sans chauffeur, devis rapide via WhatsApp.",
   path: "/location-pelle-yaounde",
   keywords: [
     "location pelle Yaoundé",
@@ -46,7 +46,7 @@ const besoins = [
 ];
 
 const inclus = [
-  "Pelle SANY SY215C de 21,9 t, godet de 0,93 m³",
+  "Pelle Caterpillar 320GX (classe 22 t), alternative SANY SY215C",
   "Chauffeur qualifié disponible, habitué aux chantiers publics",
   "Mobilisation depuis Douala planifiée avec votre calendrier",
   "Suivi technique et maintenance pendant la location",
@@ -59,8 +59,8 @@ export default function LocationPelleYaoundePage() {
       <PageHero
         eyebrow="Yaoundé"
         title="Location de pelle excavatrice à Yaoundé."
-        description="Travaux publics, voirie, lotissements : une pelle de 21,9 t mobilisable dans la capitale et toute la région du Centre."
-        image="/media/sany-sy215c-gallery.jpg"
+        description="Travaux publics, voirie, lotissements : une pelle Caterpillar 320GX mobilisable dans la capitale et toute la région du Centre."
+        image="/media/cat-320gx-chantier.jpg"
       />
 
       <section className="section-spacing">
@@ -133,13 +133,12 @@ export default function LocationPelleYaoundePage() {
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <AnimateIn delay={0.1}>
               <p className="eyebrow">La machine</p>
-              <h2 className="mt-4 section-title">SANY SY215C : le format des travaux publics.</h2>
+              <h2 className="mt-4 section-title">Caterpillar 320GX : le format des travaux publics.</h2>
               <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">
-                Avec ses 21,9 tonnes et son moteur de 118 kW, la SY215C couvre la
+                Avec ses 22 tonnes de classe et la fiabilité reconnue de Caterpillar, la 320GX couvre la
                 quasi-totalité des besoins d'une pelle sur chantier public ou privé :
                 fouilles profondes, tranchées de réseaux, chargement de camions-bennes.
-                Son godet de 0,93 m³ équilibre cadence et précision, y compris en
-                milieu urbain contraint.
+                Elle équilibre cadence et précision, y compris en milieu urbain contraint.
               </p>
               <ul className="mt-5 space-y-2.5">
                 {[
@@ -155,7 +154,7 @@ export default function LocationPelleYaoundePage() {
                 ))}
               </ul>
               <Link
-                href="/flotte/sany-sy215c"
+                href="/flotte/cat-320gx"
                 className="mt-7 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-[var(--gold)] hover:gap-3 transition-all"
               >
                 Voir la fiche technique complète <ArrowRight className="h-4 w-4" />
@@ -164,8 +163,8 @@ export default function LocationPelleYaoundePage() {
             <AnimateIn>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/media/sany-sy215c-gallery.jpg"
-                  alt="Pelle excavatrice SANY SY215C en location à Yaoundé"
+                  src="/media/cat-320gx-profil.jpg"
+                  alt="Pelle excavatrice Caterpillar 320GX en location à Yaoundé"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Location de pelle excavatrice à Douala",
   description:
-    "Location de pelle excavatrice 21,9 t à Douala : port, zones industrielles de Bassa et Yassa, chantiers urbains, curage et VRD. Avec ou sans chauffeur, devis rapide via WhatsApp.",
+    "Location de pelle excavatrice Caterpillar 320GX (classe 22 t) à Douala : port, zones industrielles de Bassa et Yassa, chantiers urbains, curage et VRD. Avec ou sans chauffeur, devis rapide via WhatsApp.",
   path: "/location-pelle-douala",
   keywords: [
     "location pelle Douala",
@@ -19,6 +19,8 @@ export const metadata: Metadata = buildPageMetadata({
     "louer une pelle Douala",
     "location engins Douala",
     "pelle 20 tonnes Douala",
+    "location pelle Caterpillar Douala",
+    "location CAT 320GX Douala",
   ],
 });
 
@@ -31,7 +33,7 @@ const besoins = [
   {
     title: "Chantiers urbains",
     description:
-      "Fondations, sous-sols et terrassement d'immeubles à Akwa, Bonanjo, Deïdo ou Bonamoussadi : une pelle de 21,9 t garde la cadence sans bloquer le chantier.",
+      "Fondations, sous-sols et terrassement d'immeubles à Akwa, Bonanjo, Deïdo ou Bonamoussadi : une pelle de classe 22 t garde la cadence sans bloquer le chantier.",
   },
   {
     title: "Curage et assainissement",
@@ -46,7 +48,7 @@ const besoins = [
 ];
 
 const inclus = [
-  "Pelle SANY SY215C de 21,9 t, godet de 0,93 m³",
+  "Pelle Caterpillar 320GX (classe 22 t), alternative SANY SY215C",
   "Avec chauffeur qualifié ou en location sèche",
   "Transport et mise en place sur votre site à Douala",
   "Suivi technique pendant toute la période de location",
@@ -59,8 +61,8 @@ export default function LocationPelleDoualaPage() {
       <PageHero
         eyebrow="Douala"
         title="Location de pelle excavatrice à Douala."
-        description="Une pelle de 21,9 t prête à travailler sur vos chantiers de Douala : port, zones industrielles, VRD et terrassement urbain."
-        image="/media/sany-sy215c-main.jpg"
+        description="Une pelle Caterpillar 320GX prête à travailler sur vos chantiers de Douala : port, zones industrielles, VRD et terrassement urbain."
+        image="/media/cat-320gx-chantier.jpg"
       />
 
       <section className="section-spacing">
@@ -134,8 +136,8 @@ export default function LocationPelleDoualaPage() {
             <AnimateIn>
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/media/sany-sy215c-main.jpg"
-                  alt="Pelle excavatrice SANY SY215C en location à Douala"
+                  src="/media/cat-320gx-profil.jpg"
+                  alt="Pelle excavatrice Caterpillar 320GX en location à Douala"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -144,9 +146,9 @@ export default function LocationPelleDoualaPage() {
             </AnimateIn>
             <AnimateIn delay={0.1} direction="left">
               <p className="eyebrow">La machine</p>
-              <h2 className="mt-4 section-title">SANY SY215C : 21,9 tonnes de productivité.</h2>
+              <h2 className="mt-4 section-title">Caterpillar 320GX : la pelle de référence.</h2>
               <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">
-                Pelle moyenne de 118 kW équipée d'un godet de 0,93 m³, la SY215C est le
+                Pelle sur chenilles Caterpillar de la classe 22 tonnes, la 320GX est le
                 format de référence pour le terrassement, les réseaux et la préparation
                 de plateformes. Assez puissante pour les gros volumes, assez maniable
                 pour les chantiers urbains de Douala.
@@ -165,7 +167,7 @@ export default function LocationPelleDoualaPage() {
                 ))}
               </ul>
               <Link
-                href="/flotte/sany-sy215c"
+                href="/flotte/cat-320gx"
                 className="mt-7 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.1em] text-[var(--gold)] hover:gap-3 transition-all"
               >
                 Voir la fiche technique complète <ArrowRight className="h-4 w-4" />

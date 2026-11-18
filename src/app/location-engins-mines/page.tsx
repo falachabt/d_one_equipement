@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Location de matériel minier et d'engins de carrières au Cameroun",
   description:
-    "Location d'engins pour mines et carrières au Cameroun : chargeuses 5 t et pelles 21,9 t pour l'extraction, le chargement de minerai et les granulats. Zones minières de l'Est, du Sud et de l'Adamaoua.",
+    "Location d'engins pour mines et carrières au Cameroun : chargeuses 5 t et pelle Caterpillar 320GX pour l'extraction, le chargement de minerai et les granulats. Zones minières de l'Est, du Sud et de l'Adamaoua.",
   path: "/location-engins-mines",
   keywords: [
     "location matériel minier Cameroun",
@@ -31,7 +31,7 @@ const usages = [
   {
     title: "Extraction et terrassement minier",
     description:
-      "Découverture, ouverture de bancs, terrassement de plateformes et de pistes d'accès : la pelle de 21,9 t prépare et exploite les sites, des travaux préparatoires à l'extraction.",
+      "Découverture, ouverture de bancs, terrassement de plateformes et de pistes d'accès : la pelle Caterpillar 320GX prépare et exploite les sites, des travaux préparatoires à l'extraction.",
   },
   {
     title: "Chargement de minerai",
@@ -69,7 +69,7 @@ const zones = [
 ];
 
 const inclus = [
-  "Chargeuse Shantui L55-C5 5 t et pelle SANY SY215C 21,9 t",
+  "Chargeuse Shantui L55-C5 5 t et pelle Caterpillar 320GX (classe 22 t)",
   "Chauffeurs qualifiés, habitués aux environnements exigeants",
   "Mobilisation sur sites éloignés, planifiée avec votre équipe",
   "Suivi technique et maintenance pendant toute la mission",
@@ -104,8 +104,8 @@ export default function LocationEnginsMinesPage() {
               </p>
               <p className="mt-4 text-base leading-relaxed text-[var(--muted)]">
                 Notre flotte actuelle couvre le cœur des besoins d'un site : une
-                chargeuse de 5 tonnes pour le chargement et la manutention, une pelle de
-                21,9 tonnes pour l'extraction et le terrassement. Les missions sont
+                chargeuse de 5 tonnes pour le chargement et la manutention, une pelle
+                Caterpillar 320GX pour l'extraction et le terrassement. Les missions sont
                 étudiées au cas par cas, y compris sur les zones minières éloignées.
               </p>
             </AnimateIn>
@@ -203,8 +203,8 @@ export default function LocationEnginsMinesPage() {
             <Link href="/flotte/shantui-l55-c5" className="btn-secondary">
               La chargeuse 5 t <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/flotte/sany-sy215c" className="btn-secondary">
-              La pelle 21,9 t <ArrowRight className="h-4 w-4" />
+            <Link href="/flotte/cat-320gx" className="btn-secondary">
+              La pelle CAT 320GX <ArrowRight className="h-4 w-4" />
             </Link>
           </AnimateIn>
         </div>
