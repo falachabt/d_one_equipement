@@ -5,7 +5,7 @@ import { ArrowRight, MapPin, ExternalLink } from "lucide-react";
 
 import { PageHero } from "@/components/page-hero";
 import { AnimateIn, StaggerChildren, StaggerItem } from "@/components/animate-in";
-import { references } from "@/data/site";
+import { projects, references } from "@/data/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -79,6 +79,35 @@ export default function ReferencesPage() {
               </div>
             </div>
           </AnimateIn>
+        </div>
+      </section>
+
+      {/* ── Projets réalisés ─────────────────────────────────────── */}
+      <section className="section-alt section-spacing">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <AnimateIn>
+            <p className="eyebrow">Projets réalisés</p>
+            <h2 className="mt-4 section-title max-w-2xl">
+              Nos projets : terrassement, drainage, abattage.
+            </h2>
+          </AnimateIn>
+          <StaggerChildren className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+            {projects.map((project) => (
+              <StaggerItem key={project.client}>
+                <div className="h-full border border-[var(--line)] bg-white p-6 hover:border-[var(--gold)] transition-colors">
+                  <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--gold)]">
+                    {project.work}
+                  </span>
+                  <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-[0.04em]">
+                    {project.client}
+                  </h3>
+                  <p className="mt-3 text-sm text-[var(--muted)] leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
         </div>
       </section>
 

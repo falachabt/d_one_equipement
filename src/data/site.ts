@@ -164,6 +164,74 @@ export const services: ServiceItem[] = [
 
 export const fleet: FleetItem[] = [
   {
+    slug: "cat-320gx",
+    name: "CAT 320GX",
+    shortName: "Pelle 22T",
+    type: "Pelle",
+    capacity: "Classe 22 tonnes",
+    brand: "Caterpillar",
+    year: "Serie actuelle",
+    availability: "Disponible sur devis",
+    summary:
+      "Pelle sur chenilles Caterpillar de la classe 22 tonnes, deja engagee sur nos chantiers au Cameroun : terrassement, drainage, abattage, demolition et travaux portuaires. Caterpillar est une marque reconnue et appreciee localement, avec un reseau de pieces et de support bien implante.",
+    badge: "Nouveau · Caterpillar",
+    image: "/media/cat-320gx-main.jpg",
+    gallery: [
+      "/media/cat-320gx-main.jpg",
+      "/media/cat-320gx-profil.jpg",
+      "/media/cat-320gx-chantier.jpg",
+      "/media/cat-320gx-arriere.jpg",
+    ],
+    highlights: [
+      "Marque Caterpillar : un vrai atout sur le marche camerounais",
+      "Machine deja eprouvee sur des chantiers reels (terrassement, drainage, abattage)",
+      "Cabine confortable et visibilite pour un travail soutenu",
+      "Fournie avec chauffeur qualifie et suivi technique",
+    ],
+    specs: [
+      { label: "Marque", value: "Caterpillar" },
+      { label: "Modele", value: "320GX" },
+      { label: "Categorie", value: "Pelle sur chenilles, classe 22 t" },
+      { label: "Usage cible", value: "Terrassement, drainage, abattage, demolition" },
+    ],
+    sectors: [
+      "Terrassement et drainage",
+      "Abattage et defrichage",
+      "Travaux portuaires",
+      "Demolition et plateformes",
+    ],
+    videos: [
+      {
+        title: "CAT 320GX en demolition",
+        file: "/media/videos/cat320gx/cat-320gx-1112-0021.mp4",
+        poster: "/media/videos/cat320gx/cat-320gx-1112-0021.jpg",
+        sourceLabel: "D-ONE",
+        sourceUrl: "",
+      },
+      {
+        title: "CAT 320GX en defrichage",
+        file: "/media/videos/cat320gx/cat-320gx-1112-0023.mp4",
+        poster: "/media/videos/cat320gx/cat-320gx-1112-0023.jpg",
+        sourceLabel: "D-ONE",
+        sourceUrl: "",
+      },
+      {
+        title: "CAT 320GX sur chantier",
+        file: "/media/videos/cat320gx/cat-320gx-1113-0014.mp4",
+        poster: "/media/videos/cat320gx/cat-320gx-1113-0014.jpg",
+        sourceLabel: "D-ONE",
+        sourceUrl: "",
+      },
+      {
+        title: "CAT 320GX au travail",
+        file: "/media/videos/cat320gx/cat-320gx-1113-0029.mp4",
+        poster: "/media/videos/cat320gx/cat-320gx-1113-0029.jpg",
+        sourceLabel: "D-ONE",
+        sourceUrl: "",
+      },
+    ],
+  },
+  {
     slug: "shantui-l55-c5",
     name: "Shantui L55-C5",
     shortName: "Chargeuse 5T 2025",
@@ -321,6 +389,36 @@ export const fleet: FleetItem[] = [
         sourceUrl: "",
       },
     ],
+  },
+];
+
+export const projects: Array<{ client: string; work: string; description: string }> = [
+  {
+    client: "SAFACAM",
+    work: "Terrassement et drainage",
+    description:
+      "Travaux de terrassement et de drainage en milieu agro-industriel avec nos pelles.",
+  },
+  {
+    client: "SOCAPALM",
+    work: "Abattage des anciens palmiers",
+    description:
+      "Abattage et defrichage des anciennes plantations de palmiers pour preparer la replantation.",
+  },
+  {
+    client: "KAFRELEC",
+    work: "Terrassement",
+    description: "Terrassement et preparation de plateforme pour un projet electrique.",
+  },
+  {
+    client: "Port de Douala",
+    work: "Terrassement",
+    description: "Terrassement sur la zone portuaire de Douala.",
+  },
+  {
+    client: "Port de la Dibamba",
+    work: "Terrassement",
+    description: "Travaux de terrassement au port de la Dibamba.",
   },
 ];
 

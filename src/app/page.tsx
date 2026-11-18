@@ -237,7 +237,7 @@ export default function Home() {
             </Link>
           </AnimateIn>
 
-          <StaggerChildren className="mt-12 grid gap-6 md:grid-cols-3" staggerDelay={0.1}>
+          <StaggerChildren className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4" staggerDelay={0.1}>
             {fleet.map((machine) => (
               <StaggerItem key={machine.slug}>
                 <Link
@@ -250,7 +250,7 @@ export default function Home() {
                       alt={machine.name}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, 25vw"
                     />
                     <span className="absolute top-4 left-4 tag text-[10px]">
                       {machine.type}
