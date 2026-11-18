@@ -11,7 +11,7 @@ import { buildPageMetadata } from "@/lib/metadata";
 export const metadata: Metadata = buildPageMetadata({
   title: "Engins lourds a louer : chargeuses et pelles",
   description:
-    "Chargeuse Shantui 5 t et pelles a louer au Cameroun. Fiches techniques, photos et devis rapide via WhatsApp. Douala, Yaounde, Kribi.",
+    "Pelle Caterpillar 320GX, chargeuse Shantui 5 t et pelles SANY a louer au Cameroun. Fiches techniques, photos et devis rapide via WhatsApp. Douala, Yaounde, Kribi.",
   path: "/flotte",
 });
 
@@ -22,7 +22,7 @@ export default function FleetPage() {
         eyebrow="Flotte"
         title="Chargeuses et pelles a louer."
         description="Nos engins presentes par modele, disponibles partout au Cameroun."
-        image="/media/shantui-case-1.jpg"
+        image="/media/cat-320gx-chantier.jpg"
       />
 
       <section className="section-spacing">

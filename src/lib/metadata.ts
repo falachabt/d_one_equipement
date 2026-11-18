@@ -12,7 +12,7 @@ export const siteUrl = rawSiteUrl
     ? rawSiteUrl
     : `https://${rawSiteUrl}`
   : "https://donequipment.com";
-export const defaultOgImage = "/media/shantui-gallery-1.jpg";
+export const defaultOgImage = "/media/cat-320gx-main.jpg";
 
 type BuildPageMetadataArgs = {
   title: string;

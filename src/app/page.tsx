@@ -150,26 +150,65 @@ export default function Home() {
       {/* ========== MARQUES — logos officiels ========== */}
       <section className="bg-white border-b border-[var(--line)] py-14">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <AnimateIn className="text-center mb-12">
+          <AnimateIn className="text-center mb-10">
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--muted)] mb-3">
               Marques que nous opérons
             </p>
             <p className="text-base text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
-              Nous travaillons exclusivement avec des marques mondiales de premier rang :{" "}
-              <strong className="text-[var(--foreground)]">Caterpillar, SEM, Shantui et SANY.</strong>
+              Notre fer de lance : <strong className="text-[var(--foreground)]">Caterpillar</strong>, la marque la plus reconnue sur les chantiers du Cameroun, complétée par SEM, Shantui et SANY.
             </p>
           </AnimateIn>
-          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-10 items-center" staggerDelay={0.08}>
-            {brands.map((brand) => (
+
+          {/* Caterpillar mis en avant */}
+          <AnimateIn delay={0.05}>
+            <Link
+              href="/flotte/cat-320gx"
+              className="group grid lg:grid-cols-2 overflow-hidden border border-[var(--line)] hover:border-[var(--gold)] transition-colors"
+            >
+              <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[320px] bg-[var(--surface)] overflow-hidden">
+                <Image
+                  src="/media/cat-320gx-main.jpg"
+                  alt="Pelle Caterpillar 320GX D-ONE EQUIPMENT sur chantier"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <span className="absolute top-4 left-4 tag text-[10px]">Nouveau</span>
+              </div>
+              <div className="flex flex-col justify-center p-8 lg:p-12">
+                <div className="relative h-14 w-40 mb-6">
+                  <Image
+                    src="/media/brands/cat-logo.png"
+                    alt="Logo Caterpillar"
+                    fill
+                    className="object-contain object-left"
+                    sizes="160px"
+                  />
+                </div>
+                <h3 className="font-display text-2xl font-bold uppercase tracking-[0.04em]">
+                  Pelle CAT 320GX
+                </h3>
+                <p className="mt-4 text-sm text-[var(--muted)] leading-relaxed max-w-md">
+                  Caterpillar, une marque de confiance au Cameroun : terrassement, drainage, abattage et travaux portuaires avec chauffeur qualifié.
+                </p>
+                <span className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-[var(--gold)]">
+                  Découvrir la CAT 320GX <ArrowRight className="h-3.5 w-3.5" />
+                </span>
+              </div>
+            </Link>
+          </AnimateIn>
+
+          <StaggerChildren className="mt-10 grid grid-cols-3 gap-10 items-center" staggerDelay={0.08}>
+            {brands.filter((b) => b.abbr !== "CAT").map((brand) => (
               <StaggerItem key={brand.abbr}>
-                <div className="flex flex-col items-center gap-3 group">
-                  <div className="relative w-full h-14 transition-transform duration-300 hover:scale-105">
+                <div className="flex flex-col items-center gap-3 group opacity-80">
+                  <div className="relative w-full h-10">
                     <Image
                       src={brand.logo}
                       alt={`Logo ${brand.name}`}
                       fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 45vw, 22vw"
+                      sizes="(max-width: 768px) 30vw, 15vw"
                     />
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-[var(--muted)]">
